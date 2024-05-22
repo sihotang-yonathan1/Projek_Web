@@ -49,9 +49,9 @@ $conn->close();
 
 <head>
     <title>Reservasi Meja Restoran WarongWarem</title>
-    <link rel="stylesheet" type="text/css" href="/rpl-project/users/reservasi/style.css">
+    <link rel="stylesheet" type="text/css" href="./users/reservasi/style.css">
 
-    <link rel="icon" href="/rpl-project/image/img.jpg">
+    <link rel="icon" href="./image/img.jpg">
     <script>
     <?php
         // Output pesan sebagai variabel JavaScript
@@ -108,7 +108,7 @@ $conn->close();
         <input type="submit" value="Reservasi">
     </form>
 
-    <script src="users/reservasi/script.js"></script>
+    <script src="./users/reservasi/script.js"></script>
 </body>
 
 </html>
