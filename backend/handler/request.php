@@ -44,13 +44,10 @@ function convert_form_data_to_array(string $formData){
         $key = $second_split[0];
         $value = $second_split[1];
 
-        array_push($result_array, array(
-            $key => $value
-        ));
+        $result_array[$key] = $value;
     };
-    $result_array_2 = array_merge(...$result_array);
-
-    return $result_array_2;
+    
+    return $result_array;
 }
 
 function handle_request(RequestHandler &$handler){
