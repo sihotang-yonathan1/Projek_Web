@@ -19,10 +19,10 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="users/beranda/style.css">
-        <link rel="icon" href="/rpl-project/image/img.jpg">
+        <link rel="icon" href="./image/img.jpg">
     </head>
 
-<body style="background: url(' /rpl-project/image/bg.jpg') no-repeat center center fixed; background-size: cover;">
+<body style="background: url('./image/bg.jpg') no-repeat center center fixed; background-size: cover;">
     <header class="container">
         <a href="#hero" class="logo clr-transition">eRestaurant</a>
         <nav class="navbar">
@@ -30,7 +30,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
                 <li class="nav-item"><a href="#hero" class="nav-link clr-transition">Home</a></li>
                 <li class="nav-item"><a href="#products" class="nav-link clr-transition">Product</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
-                <li class="nav-item"><a href="/rpl-project/reservasi_dashboard.php"
+                <li class="nav-item"><a href="./reservasi_dashboard.php"
                         class="nav-link clr-transition">Reservasi</a></li>
             </ul>
             <div class="social-links">
@@ -84,23 +84,23 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             </div>
             <div class="developer">
                 <div class="developer-one">
-                    <img src="/rpl-project/image/lio.png" alt="" width="10px">
+                    <img src="./image/lio.png" alt="" width="10px">
                     <br>
                     <p>Front End</p>
                     <p>Natalio Michael Tumuahi</p>
                 </div>
                 <div class="developer-two">
-                    <img src="/rpl-project/image/sisil.png" alt="">
+                    <img src="./image/sisil.png" alt="">
                     <p>Front End</p>
                     <p>Sisilia</p>
                 </div>
                 <div class="developer-three">
-                    <img src="/rpl-project/image/matt.jpg" alt="">
+                    <img src="./image/matt.jpg" alt="">
                     <p>Back End</p>
                     <p>Matthew Rarung</p>
                 </div>
                 <div class="developer-four">
-                    <img src="/rpl-project/image/lino.jpg" alt="">
+                    <img src="./image/lino.jpg" alt="">
                     <p>Back End</p>
                     <p>Marcelino Bandule</p>
                 </div>
@@ -109,9 +109,9 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 
         <!-- section three -->
         <section class="section section-three container"
-            style="background: url(' /rpl-project/image/bg.jpg') no-repeat center center fixed ; background-size:  cover">
+            style="background: url('./image/bg.jpg') no-repeat center center fixed ; background-size:  cover">
             <div class=" s-three-upper-img-container">
-                <img src=" /rpl-project/image/Nasi-Goreng-Seafood.jpg" alt="" loading="lazy">
+                <img src="./image/Nasi-Goreng-Seafood.jpg" alt="" loading="lazy">
             </div>
             <div class="s-three-lower-container">
                 <h3 class=" s-three-title">Stress out? Silakan coba makan ditempat kami.</h3>
@@ -134,17 +134,17 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             </div>
             <div class="s-two-products">
                 <div class="product product-one">
-                    <img src="/rpl-project/image/dinner-table-444797_1280.jpg" loading="lazy">
+                    <img src="./image/dinner-table-444797_1280.jpg" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>VIP</b></h3>
                 </div>
                 <div class="product product-two">
-                    <img src="/rpl-project/image/mejaPanjang.png" alt="" loading="lazy">
+                    <img src="./image/mejaPanjang.png" alt="" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>Panjang</b></h3>
                 </div>
                 <div class="product product-three">
-                    <img src="/rpl-project/image/restaurant-766050_1280.jpg" alt="ice cream with honey" loading="lazy">
+                    <img src="./image/restaurant-766050_1280.jpg" alt="ice cream with honey" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>Kecil</b></h3>
                 </div>
@@ -158,7 +158,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             <span class="lower-footer-elt policy"><a href="#" class="policy-link">Privacy • Policy</a></span>
         </div>
     </footer>
-    <link href=' https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link href=' https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'> -->
     <script src="users/beranda/script.js"></script>
 </body>
 
