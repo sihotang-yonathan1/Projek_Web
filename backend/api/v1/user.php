@@ -6,12 +6,11 @@ require_once($PROJECT_DIRECTORY . "/backend/connect.php");
 require_once( $PROJECT_DIRECTORY . "/backend/handler/request.php");
 require_once( $PROJECT_DIRECTORY . "/backend/handler/response.php");
 
-$http_method = $_SERVER['REQUEST_METHOD'];
 
 class UserHandler extends RequestHandler {
     function POST(){
         // get the request body
-        $req = json_decode(file_get_contents('php://input'), true);
+        $req = json_decode($this->body, true);
         
         # ref: https://www.w3schools.com/php/php_mysql_prepared_statements.asp
         $prepared_statement = $this->connection->prepare("
