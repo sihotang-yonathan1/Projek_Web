@@ -7,6 +7,8 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     exit();
 }
 
+// TODO: encapsulate the DB connection process in one separate file
+
 $host = "localhost";
 $username = "root";
 $password = "";

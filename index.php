@@ -4,6 +4,8 @@ session_start();
 $error = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // TODO: create seperate file to define aDB auth
+
     // Koneksi ke database
     $servername = "localhost";
     $username = "root"; // Ganti dengan username Anda
@@ -21,6 +23,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['logemail'];
     $pass = $_POST['logpass'];
 
+
+    // TODO: set to preqpared sql to prevent sqli
     // Query untuk memeriksa login
     $sql = "SELECT * FROM user_form WHERE email='$email' AND password='$pass'";
     $result = $conn->query($sql);
@@ -31,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['user_id'] = $row['id'];
         $_SESSION['user_type'] = $row['user_type'];
 
+        // TODO: set the matcher using associative array instead of match0-case
         // Arahkan ke halaman sesuai peran (user_type)
         switch ($_SESSION['user_type']) {
             case 'pelanggan':
@@ -61,19 +66,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html lang="en">
 
 <head>
+    <!-- TODO: delete 2 lines below without changing the layout -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
 
     <title>Restauran Login</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+    <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'> -->
     <link rel="stylesheet" href="style.css" />
     <link rel='stylesheet' href='https://unicons.iconscout.com/release/v2.1.9/css/unicons.css'>
     <link rel="icon" href="/rpl-project/image/img.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script> -->
 
 </head>
 
@@ -148,6 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                                         <option value="pelayan">Pelayan</option>
                                                         <option value="manajer">Manajer</option>
                                                     </select>
+                                                    <!-- TODO: set the svg in seperate file instead directly in svg tag -->
                                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                         viewBox="0 0 24 24">
                                                         <path fill="#494646"

@@ -81,13 +81,17 @@ const updateBtn = document.getElementById("update-btn");
 const cancelBtn = document.getElementById("cancel-btn");
 let users = JSON.parse(localStorage.getItem("users")) || [];
 let currentUserId = null;
+
+// TODO: give documentation of the regex pattern
 const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
+// TODO: refactor and all this table below
 // Functions
 function renderTable() {
   tableBody.innerHTML = "";
   for (let i = 0; i < users.length; i++) {
     const user = users[i];
+    // Maybe can use templating like
     const tr = document.createElement("tr");
     const idTd = document.createElement("td");
     const nameTd = document.createElement("td");
@@ -102,6 +106,7 @@ function renderTable() {
     emailTd.innerText = user.email;
     editBtn.innerText = "Edit";
     deleteBtn.innerText = "Delete";
+    
     editBtn.addEventListener("click", () => {
       showUpdateForm(user.id);
     });

@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     exit();
 }
 
+// TODO: encapsulate the DB connection process in one separate file
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -21,12 +22,14 @@ if ($conn->connect_error) {
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // TODO: refactor repeated function
     $name = $conn->real_escape_string($_POST['nama']);
     $date = $conn->real_escape_string($_POST['tanggal']);
     $time = $conn->real_escape_string($_POST['waktu']);
     $user = $conn->real_escape_string($_POST['jumlah-orang']);
     $jenis = $conn->real_escape_string($_POST['jenis-meja']);
 
+    // TODO: set this query string into prepared statement
     $sql = "INSERT INTO reservasi_form (nama, tanggal, waktu, jumlah_orang, jenis_meja) VALUES ('$name', '$date', '$time', '$user', '$jenis')";
 
     if ($conn->query($sql) === TRUE) {
@@ -60,6 +63,7 @@ $conn->close();
         alert(message);
     }
     </script>
+    <!-- TODO: refer this style in external file -->
     <style>
     .tombol {
         background-color: rgb(103, 202, 45);
@@ -78,10 +82,11 @@ $conn->close();
 </head>
 
 <body>
+    <!-- TODO: set style in external file -->
+    <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
     <button class="tombol" onclick="logout()" style="position: relative; left: 1140px; bottom: 265px">Logout</button>
     <h1>Reservasi Meja </h1>
     <form action="" method=" post">
-
         <label for="nama">Nama</label>
         <input type="text" id="nama" name="nama" required>
 

@@ -7,6 +7,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     exit();
 }
 
+// TODO: encapsulate the DB connection process in one separate file
 // Koneksi ke database (ganti dengan detail koneksi Anda)
 $host = "localhost";
 $username = "root";
@@ -61,6 +62,7 @@ $result = $conn->query($query);
             </th>
         </tr>
 
+        <!-- TODO: use different syntax -->
         <?php
         if ($result->num_rows > 0) {
             $no = 1;
