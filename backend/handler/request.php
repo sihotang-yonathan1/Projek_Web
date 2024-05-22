@@ -29,6 +29,10 @@ class RequestHandler {
         return null;
     }
 
+    function __destruct(){
+        $this->connection->close();
+    }
+
 }
 
 function handle_request(RequestHandler &$handler){
