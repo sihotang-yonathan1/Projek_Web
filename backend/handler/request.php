@@ -3,8 +3,12 @@
 class RequestHandler {
     public $request;
     public $connection;
-    
+    public string $body = "";
+
     function __construct($request, mysqli | PDO | null $connection = null){
+        # ref: https://stackoverflow.com/questions/8945879/how-to-get-body-of-a-post-in-php
+        $this->body = file_get_contents("php://input");
+        
         $this->request = $request;
         $this->connection = $connection;
     }
