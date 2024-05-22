@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
+body {
+    font-family: "Carrois Gothic", sans-serif;
+    background: url(/rpl-project/image/bg.jpg);
+    background-repeat: no-repeat;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+h1 {
+    margin-left: 130px;
+    font-size: 50px;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #e7e970;
+}
+.tombol {
+    background-color: rgb(103, 202, 45);
+    width: 60px;
+    height: 30px;
+    margin-left: 30px;
+    color: #f5fdff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 12%;
+  }
+  
+  .tombol:hover {
+    background-color: rgb(198, 21, 21);
+  }
