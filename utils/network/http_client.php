@@ -1,7 +1,8 @@
 <?php
 class HttpClient {
     public static function get(string $url){
-
+        $result = file_get_contents($url);
+        return $result;
     }
 
     public static function post(string $url, $data){
