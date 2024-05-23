@@ -1,36 +1,17 @@
 <?php
 session_start();
 
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
+
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     // Pengguna belum login, arahkan ke halaman login
     header("Location: index.php");
     exit();
 }
 
-// TODO: encapsulate the DB connection process in one separate file
-// Koneksi ke database (ganti dengan detail koneksi Anda)
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
-
-// Query untuk mendapatkan data reservasi
-$query = "SELECT * FROM reservasi_form";
-$result = $conn->query($query);
-// Ambil data reservasi ke dalam array
-$reservasiData = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $reservasiData[] = $row;
-    }
-}
+$_response = HttpClient::get("$PROJECT_URL/backend/api/v1/reservasi.php");
+$response = json_decode($_response, true);
 
 ?>
 
@@ -82,20 +63,16 @@ header("Content-Type: text/html; charset=UTF-8");
                         <th>Jenis Meja</th>
                         <th>Status</th>
                     </tr>
-            
-                    <!-- TODO: use different syntax -->
-                    <?php
-            foreach ($reservasiData as $row) {
-                echo "<tr>
-                        <td>" . $row['tanggal'] . "</td>
-                        <td>" . $row['waktu'] . "</td>
-                        <td>" . $row['jumlah_orang'] . "</td>
-                        <td>" . $row['jenis_meja'] . "</td>
-                        <td>" . ($row['status'] ?? 'Belum Konfirmasi') . "</td>
-                        </tr>";
-                }
-                $conn->close();
-                ?>
+
+                    <?php foreach ($response as $data): ?>
+                        <tr>
+                            <td><?= $data['tanggal'] ?></td>
+                            <td><?= $data['waktu'] ?></td>
+                            <td><?= $data['jumlah_orang'] ?></td>
+                            <td><?= $data['jenis_meja'] ?></td>
+                            <td><?= $data['status'] ?? "Belum Konfirmasi" ?></td>
+                        </tr>
+                    <?php endforeach ?>
                 </table>
             </div>
         </div>
