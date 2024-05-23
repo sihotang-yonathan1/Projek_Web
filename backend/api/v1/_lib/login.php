@@ -1,5 +1,9 @@
 <?php
 
+$PROJECT_DIRECTORY = dirname(__FILE__, 5);
+
+require_once($PROJECT_DIRECTORY . "/backend/handler/request.php");
+
 class LoginHandler extends RequestHandler {
     function POST(){
         // get the request body
