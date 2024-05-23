@@ -1,36 +1,17 @@
 <?php
 session_start();
 
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
+
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     // Pengguna belum login, arahkan ke halaman login
     header("Location: index.php");
     exit();
 }
 
-// TODO: encapsulate the DB connection process in one separate file
-// Koneksi ke database (ganti dengan detail koneksi Anda)
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
-
-// Query untuk mendapatkan data reservasi
-$query = "SELECT * FROM reservasi_form";
-$result = $conn->query($query);
-// Ambil data reservasi ke dalam array
-$reservasiData = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $reservasiData[] = $row;
-    }
-}
+$_result = HttpClient::get("$PROJECT_URL/backend/api/v1/reservasi.php");
+$result = json_decode($_result, true);
 
 ?>
 <!DOCTYPE html>
@@ -77,15 +58,12 @@ if ($result->num_rows > 0) {
                         <th>Nama Pelanggan</th>
                         <th>Status</th>
                     </tr>
-                    <?php
-                        foreach ($reservasiData as $row) {
-                            echo "<tr>
-                        <td>" . $row['nama'] . "</td>
-                        <td>" . ($row['status'] ?? 'Belum Konfirmasi') . "</td>
-                      </tr>";
-                    }
-                $conn->close();
-                ?>
+                    <?php foreach($result as $data): ?>
+                        <tr>
+                            <td><?= $data['nama']?></td>
+                            <td><?= $data['status'] ?? 'Belum Konfirmasi' ?> </td>
+                        </tr>
+                    <?php endforeach ?>
                 </table>
             </div>
         </div>
