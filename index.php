@@ -2,13 +2,13 @@
 session_start();
 
 require_once("./utils/network/http_client.php");
+require_once("./config.php");
 
 $error = "";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     $result = HttpClient::post(
-        // TODO: set url to relative
-        'http://localhost/Projek_Web/backend/api/v1/login.php',
+        "$PROJECT_URL/backend/api/v1/login.php",
         [
             'email' => $_POST['email'], 
             'password' => $_POST['password']
