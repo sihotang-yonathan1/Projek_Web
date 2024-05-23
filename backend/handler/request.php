@@ -5,6 +5,7 @@ class RequestHandler {
     public $connection;
     public string $body = "";
     public string $content_type;
+    public array $query;
 
     function __construct($request, mysqli | PDO | null $connection = null){
         # ref: https://stackoverflow.com/questions/8945879/how-to-get-body-of-a-post-in-php        
@@ -12,6 +13,10 @@ class RequestHandler {
         $this->connection = $connection;
         $this->content_type = array_key_exists('CONTENT_TYPE', $this->request) ? $this->request['CONTENT_TYPE'] : "www-form-urlencode";
         $this->body = file_get_contents("php://input");
+
+        if ($_SERVER['QUERY_STRING'] != ""){
+            $this->query = convert_form_data_to_array($_SERVER['QUERY_STRING'], true);
+        }
     }
 
     public function GET(){
@@ -36,13 +41,19 @@ class RequestHandler {
 
 }
 
-function convert_form_data_to_array(string $formData){
+function convert_form_data_to_array(string $formData, bool $convert_type = false){
     $ampersand_split = explode("&", $formData);
     $result_array = array();
     foreach ($ampersand_split as $first_split){
         $second_split = explode("=", $first_split);
         $key = $second_split[0];
         $value = $second_split[1];
+
+        if ($convert_type){
+            if (is_numeric($value)){
+                $value = (int) $value;
+            }
+        }
 
         $result_array[$key] = $value;
     };
