@@ -10,7 +10,7 @@ class RequestHandler {
         # ref: https://stackoverflow.com/questions/8945879/how-to-get-body-of-a-post-in-php        
         $this->request = $request;
         $this->connection = $connection;
-        $this->content_type = $this->request['CONTENT_TYPE'];
+        $this->content_type = array_key_exists('CONTENT_TYPE', $this->request) ? $this->request['CONTENT_TYPE'] : "www-form-urlencode";
         $this->body = file_get_contents("php://input");
     }
 
@@ -52,7 +52,6 @@ function convert_form_data_to_array(string $formData){
 
 function handle_request(RequestHandler &$handler){
     $http_method = $handler->request['REQUEST_METHOD'];
-    
     // Convert the form data into json if content-type is application/x-www-form-urlencoded
     if (preg_match('/application\/x-www-form-urlencoded/', $handler->content_type)){
         $handler->body = json_encode(
