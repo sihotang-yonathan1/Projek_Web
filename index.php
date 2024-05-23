@@ -1,65 +1,40 @@
 <?php
 session_start();
 
-$error = '';
+require_once("./utils/network/http_client.php");
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // TODO: create seperate file to define aDB auth
+$error = "";
 
-    // Koneksi ke database
-    $servername = "localhost";
-    $username = "root"; // Ganti dengan username Anda
-    $password = ""; // Ganti dengan password Anda
-    $dbname = "user_db"; // Ganti dengan nama database Anda
+if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $result = HttpClient::post(
+        // TODO: set url to relative
+        'http://localhost/Projek_Web/backend/api/v1/login.php',
+        [
+            'email' => $_POST['email'], 
+            'password' => $_POST['password']
+        ]
+    );
+    ['id' => $user_id, 'user_type' => $user_type] = json_decode($result, true);
+    
+    // Set session
+    $_SESSION['user_id'] = $user_id;
+    $_SESSION['user_type'] = $user_type;  
 
-    $conn = new mysqli($servername, $username, $password, $dbname);
+    $_MAP_DASHBOARD = [
+        "pelanggan" => "beranda_dashboard.php",
+        "pelayan" => "pelayan_dashboard.php",
+        "manajer" => "manajer_dashboard.php"
+    ];
 
-    // Periksa koneksi
-    if ($conn->connect_error) {
-        die("Koneksi Gagal: " . $conn->connect_error);
+    if (array_key_exists($user_type, $_MAP_DASHBOARD)){
+        header("Location: $_MAP_DASHBOARD[$user_type]");
     }
-
-    // Ambil data dari form
-    $email = $_POST['logemail'];
-    $pass = $_POST['logpass'];
-
-
-    // TODO: set to preqpared sql to prevent sqli
-    // Query untuk memeriksa login
-    $sql = "SELECT * FROM user_form WHERE email='$email' AND password='$pass'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows == 1) {
-        // Login berhasil, set sesi
-        $row = $result->fetch_assoc();
-        $_SESSION['user_id'] = $row['id'];
-        $_SESSION['user_type'] = $row['user_type'];
-
-        // TODO: set the matcher using associative array instead of match0-case
-        // Arahkan ke halaman sesuai peran (user_type)
-        switch ($_SESSION['user_type']) {
-            case 'pelanggan':
-                header("Location: beranda_dashboard.php");
-                break;
-            case 'pelayan':
-                header("Location: pelayan_dashboard.php");
-                break;
-            case 'manajer':
-                header("Location: manajer_dashboard.php");
-                break;
-            // Tambahkan case sesuai peran lainnya jika diperlukan
-            default:
-                header("Location: index.php");
-        }
-    } else {
-        $error = "Login gagal. Periksa kembali email dan password.";
+    else {
+        header("Location: index.php");
     }
-
-    // Tutup koneksi
-    $conn->close();
 }
-?>
 
+?>
 
 
 <!DOCTYPE html>
@@ -70,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/bootstrap.bundle.min.js"></script>
 
-    <title>Restauran Login</title>
+    <title>Restaurant Login</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'> -->
@@ -99,15 +74,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                         <div class="section text-center">
                                             <h4 class="mb-4 pb-3">Log In</h4>
                                             <img class="pp" src="image/pp.png" alt="bg" width="100px">
-                                            <form method="post">
+                                            
+                                            <form method="POST" action="<?php $_SERVER['PHP_SELF']?>">
                                                 <div class="form-group">
-                                                    <input type="email" name="logemail" class="form-style"
-                                                        placeholder="Your Email" id="logemail" autocomplete="off">
+                                                    <input type="email" name="email" class="form-style"
+                                                        placeholder="Your Email" id="email" autocomplete="off">
                                                     <i class="input-icon uil uil-at"></i>
                                                 </div>
                                                 <div class="form-group mt-2">
-                                                    <input type="password" name="logpass" class="form-style"
-                                                        placeholder="Your Password" id="logpass" autocomplete="off">
+                                                    <input type="password" name="password" class="form-style"
+                                                        placeholder="Your Password" id="password" autocomplete="off">
                                                     <i class="input-icon uil uil-lock-alt"></i>
                                                 </div>
                                                 <button type="submit" class="btn mt-4">LOGIN</button>
@@ -124,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <div class="card-back">
                                     <div class="center-wrap">
                                         <div class="section text-center">
-                                            <form action="koneksi.php" method="post">
+                                            <form action="projek_web/backend/api/v1/user.php" method="post">
                                                 <h4 class="mb-4 pb-3">Sign Up</h4>
                                                 <?php
                                             if (isset($errors)) {
