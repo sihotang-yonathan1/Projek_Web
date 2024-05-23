@@ -1,29 +1,19 @@
 <?php
 session_start();
 
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
+
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     // Pengguna belum login, arahkan ke halaman login
     header("Location: index.php");
     exit();
 }
 
-// TODO: encapsulate the DB connection process in one separate file
-// Koneksi ke database (ganti dengan detail koneksi Anda)
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
-
-// Query untuk mendapatkan data reservasi
-$query = "SELECT * FROM reservasi_form";
-$result = $conn->query($query);
+// The APi before is using the same table as `reservation_form` but i think
+// this variable meant to retrieve data from `pelayan_form` table, i may wrong though
+$_result = HttpClient::get("$PROJECT_URL/backend/api/v1/reservasi.php");
+$result = json_decode($_result, true);
 ?>
 
 <!DOCTYPE html>
@@ -61,32 +51,24 @@ $result = $conn->query($query);
             <th>Status</td>
             </th>
         </tr>
-
-        <!-- TODO: use different syntax -->
-        <?php
-        if ($result->num_rows > 0) {
-            $no = 1;
-            while ($row = $result->fetch_assoc()) {
-                echo "<tr>
-                    <td>" . $no++ . "</td>
-                    <td>" . $row['nama'] . "</td>
-                    <td>" . $row['tanggal'] . "</td>
-                    <td>" . $row['waktu'] . "</td>
-                    <td>" . $row['jumlah_orang'] . "</td>
-                    <td>" . $row['jenis_meja'] . "</td>
-                    <td>" . ($row['catatan_khusus'] ?? 'Tidak ada') . "</td>
-                    <td>" . ($row['status'] ?? 'Tidak ada') . "</td> 
-            </tr>";
-        }
-        } else {
-        echo "<tr>
-            <td colspan='8'>Tidak ada data reservasi.</td>
-        </tr>";
-        }
-
-        // Tutup koneksi
-        $conn->close();
-        ?>
+        <?php if (count($result) > 0): ?>
+            <?php foreach($result as $data): ?>
+                <tr>
+                    <td><?= array_search($data, $result) + 1 ?></td>
+                    <td><?= $data['nama'] ?></td>
+                    <td><?= $data['tanggal'] ?></td>
+                    <td><?= $data['waktu'] ?></td>
+                    <td><?= $data['jumlah_orang'] ?></td>
+                    <td><?= $data['jenis_meja'] ?></td>
+                    <td><?= $data['catatan_khusus'] ?? "Tidak ada" ?></td>
+                    <td><?= $data['status'] ?? "Tidak ada"?></td>
+                </tr>
+            <?php endforeach;?>
+        <?php else: ?>
+            <tr>
+                <td colspan='8'>Tidak ada data reservasi.</td>
+            </tr>
+        <?php endif; ?>
     </table>
 </body>
 
