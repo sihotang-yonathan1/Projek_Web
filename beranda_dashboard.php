@@ -18,33 +18,32 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="users/beranda/style.css">
-        <link rel="icon" href="/rpl-project/image/img.jpg">
+        <link rel="stylesheet" href="user/beranda/style.css">
+        <link rel="icon" href="gambar/img.jpg">
     </head>
 
-<body style="background: url(' /rpl-project/image/bg.jpg') no-repeat center center fixed; background-size: cover;">
+<body style="background: url('gambar/bg.jpg') no-repeat center center fixed; background-size: cover;">
     <header class="container">
-        <a href="#hero" class="logo clr-transition">eRestaurant</a>
+        <a href="#hero" class="logo clr-transition">Restaurant</a>
         <nav class="navbar">
             <ul class="nav-items">
                 <li class="nav-item"><a href="#hero" class="nav-link clr-transition">Home</a></li>
                 <li class="nav-item"><a href="#products" class="nav-link clr-transition">Product</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
-                <li class="nav-item"><a href="/rpl-project/reservasi_dashboard.php"
-                        class="nav-link clr-transition">Reservasi</a></li>
+                <li class="nav-item"><a href="reservasi_dashboard.php" class="nav-link clr-transition">Reservasi</a></li>
             </ul>
             <div class="social-links">
                 <ul>
-                    <li><i class='bx bxl-instagram nav-icon clr-transition'></i></li>
-                    <li><i class='bx bxl-twitter nav-icon clr-transition'></i></li>
-                    <li><i class='bx bxl-facebook nav-icon clr-transition'></i></li>
+                    <li><i class='bx bxl-instagram nav-icon'></i></li>
+                    <li><i class='bx bxl-twitter nav-icon'></i></li>
+                    <li><i class='bx bxl-facebook nav-icon'></i></li>
                 </ul>
             </div>
             <button class="tombol" onclick="logout()">Logout</button>
         </nav>
     </header>
     <main id="hero" class="main">
-        <section class="section section-one">
+        <section class="section-one">
             <div class="container hook-container">
                 <h1 class="hook-title clr-transition">Selamat Datang!</h1>
                 <h2 class="hook-sub_title clr-transition">Warongwarem Restaurant.</h2>
@@ -52,7 +51,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         </section>
 
         <!-- --- section two --- -->
-        <section id="about" class="section section-two container">
+        <section id="about" class="section-two container">
             <div class="oath-container">
                 <h3>Deskripsi</h3>
                 <br>
@@ -84,34 +83,34 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             </div>
             <div class="developer">
                 <div class="developer-one">
-                    <img src="/rpl-project/image/lio.png" alt="" width="10px">
+                    <img src="gambar/lio.png" alt="" width="10px">
                     <br>
                     <p>Front End</p>
                     <p>Natalio Michael Tumuahi</p>
                 </div>
                 <div class="developer-two">
-                    <img src="/rpl-project/image/sisil.png" alt="">
+                    <img src="gambar/febrian1.jpg" alt="">
                     <p>Front End</p>
-                    <p>Sisilia</p>
+                    <p>Febrian Rezki Hemeto</p>
                 </div>
                 <div class="developer-three">
-                    <img src="/rpl-project/image/matt.jpg" alt="">
+                    <img src="gambar/matt.jpg" alt="">
                     <p>Back End</p>
-                    <p>Matthew Rarung</p>
+                    <p>Yonatan Hot Gabe Sihotang</p>
                 </div>
                 <div class="developer-four">
-                    <img src="/rpl-project/image/lino.jpg" alt="">
+                    <img src="gambar/lino.jpg" alt="">
                     <p>Back End</p>
-                    <p>Marcelino Bandule</p>
+                    <p>Billy Juan Ambarura</p>
                 </div>
             </div>
         </section>
 
         <!-- section three -->
-        <section class="section section-three container"
-            style="background: url(' /rpl-project/image/bg.jpg') no-repeat center center fixed ; background-size:  cover">
+        <section class="section-three container"
+            style="background: url('gambar/bg.jpg') no-repeat center center fixed ; background-size:  cover">
             <div class=" s-three-upper-img-container">
-                <img src=" /rpl-project/image/Nasi-Goreng-Seafood.jpg" alt="" loading="lazy">
+                <img src=" gambar/Nasi-Goreng-Seafood.jpg" alt="" loading="lazy">
             </div>
             <div class="s-three-lower-container">
                 <h3 class=" s-three-title">Stress out? Silakan coba makan ditempat kami.</h3>
@@ -123,43 +122,45 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         </section>
 
         <!-- section four -->
-        <section id="products" class="section section-two container">
+        <section id="products" class="section-two container">
             <div class="s-two-upper-info">
                 <h2 class="s-two-slogan">WarongWarem Restorant, Tempat Nyaman, Makan Lezat, Kenangan Tak Terlupakan!.
                 </h2>
-                <p class="s-two-definition s-definition">
+                <p class="s-definition">
                     Makanan kami autentik Indonesia, dari nasi goreng yang gurih hingga rendang yang lezat, memanjakan
                     lidah para pelanggan.
                 </p>
             </div>
             <div class="s-two-products">
                 <div class="product product-one">
-                    <img src="/rpl-project/image/dinner-table-444797_1280.jpg" loading="lazy">
+                    <img src="gambar/dinner-table-444797_1280.jpg" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>VIP</b></h3>
                 </div>
                 <div class="product product-two">
-                    <img src="/rpl-project/image/mejaPanjang.png" alt="" loading="lazy">
+                    <img src="gambar/mejaPanjang.png" alt="" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>Panjang</b></h3>
                 </div>
                 <div class="product product-three">
-                    <img src="/rpl-project/image/restaurant-766050_1280.jpg" alt="ice cream with honey" loading="lazy">
+                    <img src="gambar/restaurant-766050_1280.jpg" alt="ice cream with honey" loading="lazy">
                     <h3 class="buy-btn pos-abs-center">Order</h3>
                     <h3 class="name pos-abs-center">Meja <b>Kecil</b></h3>
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- FOOTER -->
     <footer id="contact" class="footer container">
         <div class="lower-footer">
-            <span class="lower-footer-elt copy">copyright ©2023 eReservasi</span>
-            <span class="lower-footer-elt developer">Developed by Kelompok 6</span>
-            <span class="lower-footer-elt policy"><a href="#" class="policy-link">Privacy • Policy</a></span>
+            <span class="lower-footer-elt" id="lower-footer-elt1">copyright ©2023 Reservasi</span>
+            <span class="lower-footer-elt" id="lower-footer-elt2">Developed by Kelompok 2 Pemrograman Web</span>
+            <span class="lower-footer-elt" id="lower-footer-elt3"><a href="#" class="policy-link">Privacy • Policy</a></span>
         </div>
     </footer>
     <link href=' https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
-    <script src="users/beranda/script.js"></script>
+    <script src="user/beranda/script.js"></script>
 </body>
 
 </html>
