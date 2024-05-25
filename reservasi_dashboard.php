@@ -46,9 +46,9 @@ $conn->close();
 
 <head>
     <title>Reservasi Meja Restoran WarongWarem</title>
-    <link rel="stylesheet" type="text/css" href="/rpl-project/users/reservasi/style.css">
+    <link rel="stylesheet" type="text/css" href="users/reservasi/style.css">
 
-    <link rel="icon" href="/rpl-project/image/img.jpg">
+    <link rel="icon" href="image/img.jpg">
     <script>
     <?php
         // Output pesan sebagai variabel JavaScript
