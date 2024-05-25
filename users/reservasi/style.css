@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Carrois+Gothic&display=swap');
 body {
-    font-family: "Carrois Gothic", sans-serif;
-    background: url(/rpl-project/image/bg.jpg);
-    background-repeat: no-repeat;
-    color: aliceblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    margin: 0;
+  font-family: "Carrois Gothic", sans-serif;
+  background: url("../../gambar/bg.jpg");
+  background-repeat: no-repeat;
+  color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
 }
 
 h1 {
