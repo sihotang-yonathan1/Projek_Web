@@ -405,7 +405,7 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  transition: transform 1000ms;
+  transition: transform 0.5s;
 }
 @media screen and (max-width: 1147px) {
   .product {
@@ -417,9 +417,23 @@ header {
     width: calc(365 * 0.06rem);
   }
 }
-.product:hover {
-  transform: rotateY(360deg);
+
+@keyframes scaleHover {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
+
+.product:hover {
+  animation: scaleHover 0.5s forwards;
+}
+
 .product-one img {
   max-width: calc(300 * 0.06rem);
 }
