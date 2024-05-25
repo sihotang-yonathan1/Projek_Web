@@ -22,7 +22,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <link rel="icon" href="gambar/img.jpg">
     </head>
 
-<body style="background: url('gambar/bg.jpg') no-repeat center center fixed; background-size: cover;">
+<body>
     <header class="container">
         <a href="#hero" class="logo clr-transition">Restaurant</a>
         <nav class="navbar">
