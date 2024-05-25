@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "user_db";
+$db = "reservasi_form";
 
 $conn = new mysqli($host, $username, $password, $db);
 
@@ -31,7 +31,7 @@ $result = $conn->query($query);
 <head>
     <title>Dashboard Pelayan</title>
     <link rel="stylesheet" href="pelayan/style.css">
-    <link rel="icon" href="image/img.jpg">
+    <link rel="icon" href="gambar/img.jpg">
 </head>
 
 <body>
