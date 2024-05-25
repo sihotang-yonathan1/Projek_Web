@@ -33,7 +33,7 @@ body {
   font-family: "Pompiere", cursive;
   font-size: 1.2rem;
   color: var(--text-clr);
-  background: url("image/bg.jpg") no-repeat center center fixed;
+  background: url("../../gambar/bg.jpg") no-repeat center center fixed;
   background-size: cover;
   transition: background-color 1000ms;
 }
