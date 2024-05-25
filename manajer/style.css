@@ -60,10 +60,11 @@ body {
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 }
+
 .container {
   margin-top: 10px;
   display: flex;
-  justify-content: justify;
+  justify-content: space-between;
   flex: 1;
 }
 
@@ -88,7 +89,6 @@ nav {
   font-size: 15px;
   color: rgb(100, 100, 100);
 }
-
 .side_navbar a:hover {
   background: rgb(235, 235, 235);
 }
@@ -96,11 +96,37 @@ nav {
   border-left: 2px solid rgb(100, 100, 100);
 }
 
+/* Main Body Section */
+.main-body {
+  width: 70%;
+  padding: 1rem;
+}
+.promo_card {
+  width: 98%;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  height: 120px;
+  background: rgb(37, 37, 37);
+  margin-left: 20px;
+  padding: 20px 0;
+}
+.promo_card h1,
+.promo_card span,
+button {
+  margin: 10px;
+}
+.promo_card button {
+  display: block;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 .history_lists {
   display: flex;
-  align-items: top;
-  justify-content: center;
-  flex: 1;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .row {
