@@ -90,14 +90,6 @@ nav {
   font-size: 15px;
   color: rgb(100, 100, 100);
 }
-.links {
-  margin-top: 5rem;
-  display: flex;
-  flex-direction: column;
-}
-.links a {
-  font-size: 13px;
-}
 .side_navbar a:hover {
   background: rgb(235, 235, 235);
 }
