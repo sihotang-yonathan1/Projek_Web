@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "user_db";
+$db = "reservasi_form";
 
 $conn = new mysqli($host, $username, $password, $db);
 
@@ -46,9 +46,9 @@ $conn->close();
 
 <head>
     <title>Reservasi Meja Restoran WarongWarem</title>
-    <link rel="stylesheet" type="text/css" href="users/reservasi/style.css">
+    <link rel="stylesheet" type="text/css" href="user/reservasi/style.css">
 
-    <link rel="icon" href="image/img.jpg">
+    <link rel="icon" href="gambar/img.jpg">
     <script>
     <?php
         // Output pesan sebagai variabel JavaScript
@@ -80,7 +80,7 @@ $conn->close();
 <body>
     <button class="tombol" onclick="logout()" style="position: relative; left: 1140px; bottom: 265px">Logout</button>
     <h1>Reservasi Meja </h1>
-    <form action="" method=" post">
+    <form id="reservation-form" method=" post">
 
         <label for="nama">Nama</label>
         <input type="text" id="nama" name="nama" required>
@@ -103,7 +103,7 @@ $conn->close();
         <input type="submit" value="Reservasi">
     </form>
 
-    <script src="users/reservasi/script.js"></script>
+    <script src="user/reservasi/script.js"></script>
 </body>
 
 </html>
