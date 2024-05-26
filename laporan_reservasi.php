@@ -20,11 +20,12 @@ header("Content-Type: text/html; charset=UTF-8");
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="manajer/laporan_reservasi/style.css">
-<link rel="icon" href="/rpl-project/image/img.jpg">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+<link rel="stylesheet" href="./manajer/laporan_reservasi/style.css">
+<link rel="icon" href="gambar/img.jpg">
 <title>Dashboard Manajer</title>
 </head>
 
@@ -34,7 +35,6 @@ header("Content-Type: text/html; charset=UTF-8");
             <a href="#">WarongWarem</a>
             <div class="search_box">
                 <input type="text" placeholder="Search ">
-                <i class="fas fa-search"></i>
             </div>
         </div>
 
@@ -77,7 +77,7 @@ header("Content-Type: text/html; charset=UTF-8");
             </div>
         </div>
     </div>
-    <script src="manajer/laporan_reservasi/script.js"></script>
+    <script src="./manajer/laporan_reservasi/script.js"></script>
 </body>
 
 </html>

@@ -86,7 +86,8 @@ $conn->close();
     <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
     <button class="tombol" onclick="logout()" style="position: relative; left: 1140px; bottom: 265px">Logout</button>
     <h1>Reservasi Meja </h1>
-    <form action="" method=" post">
+    <form id="reservation-form" method="POST">
+
         <label for="nama">Nama</label>
         <input type="text" id="nama" name="nama" required>
 
