@@ -3,15 +3,28 @@
   margin: 0;
   padding: 0;
 }
-#container {
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+
+.action-icons {
+  cursor: pointer;
+}
+.action-icons img {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
-.container .navbar .tombol {
-  background-color: #dc3545;
+.action-icons a {
+  text-decoration: none;
 }
+
+.action-icons img:first-child {
+  margin-right: 8px;
+}
+
+#action-icons img:hover {
+  border: 1px solid black;
+}
+
 header {
   display: flex;
   flex-wrap: wrap;
@@ -59,4 +72,65 @@ td {
 th {
   background-color: #4caf50;
   color: white;
+}
+
+form {
+  width: 300px;
+  float: left;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: greenyellow;
+}
+button[type="button"]:hover {
+  background-color: #e7e970;
+}
+.submit {
+  width: 60px;
+  height: 30px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border-radius: 12%;
+  border: 1px solid black;
+}
+
+.cancel {
+  width: 60px;
+  height: 30px;
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border-radius: 12%;
+  border: 1px solid black;
 }
