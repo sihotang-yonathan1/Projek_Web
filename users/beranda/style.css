@@ -92,12 +92,19 @@ img {
 
 /* -------- HEADER -------- */
 header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   align-items: center;
   justify-content: space-between;
+  background-color: rgb(73, 73, 73);
+  z-index: 999; /* Menentukan tingkat z-indeks agar header tetap di atas elemen lain */
 }
+
 .logo {
   color: var(--nav-txt-clr);
   font-size: 2.3rem;
@@ -219,6 +226,9 @@ header {
 }
 
 /* -------- SECTION ONE: Hero section -------- */
+.main {
+  padding-top: 70px;
+}
 .section-one {
   height: 81.5vh;
 }
@@ -264,35 +274,36 @@ header {
 }
 
 /* ----- section two: developer section ----- */
-
 .section-two {
   background-color: var(--sec-two-bg-clr);
 }
 
-@media screen and (min-width: 700px) {
-  .developer {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap-reverse;
-    text-align: center;
-  }
+.judul_dev {
+  margin-left: 50px;
+}
+.developer {
+  margin-left: 50px;
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap-reverse;
+  text-align: center;
+}
 
-  .developer-one img {
-    max-width: calc(200 * 0.06rem);
-    margin-right: 30px;
-  }
-  .developer-two img {
-    max-width: calc(150 * 0.06rem);
-    margin-right: 30px;
-  }
-  .developer-three img {
-    max-width: calc(130 * 0.06rem);
-    margin-right: 30px;
-  }
-  .developer-four img {
-    max-width: calc(160 * 0.06rem);
-    margin-right: 30px;
-  }
+.developer-one img {
+  max-width: calc(200 * 0.06rem);
+  margin-right: 30px;
+}
+.developer-two img {
+  max-width: calc(150 * 0.06rem);
+  margin-right: 30px;
+}
+.developer-three img {
+  max-width: calc(130 * 0.06rem);
+  margin-right: 30px;
+}
+.developer-four img {
+  max-width: calc(160 * 0.06rem);
+  margin-right: 30px;
 }
 
 /* ----- section three: Ad products section ----- */
@@ -392,6 +403,7 @@ header {
     margin-top: 4rem;
   }
 }
+
 .product {
   cursor: pointer;
   /* From https://css.glass */
