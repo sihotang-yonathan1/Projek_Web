@@ -1,4 +1,10 @@
-# Projek_Web
+# Projek Akhir Mata Kuliah Pemrograman Web
+
+Nama:
+1. Yonathan Sihotang
+2. Febrian Hemeto
+3. Natalio Tumuahi
+4. Billy Ambarura
 
 ## Cara Kerja Aplikasi berbasis Web
 1. Pelanggan, Pelayan, dan Manajer melakukan Sign Up serta melakukan login.
