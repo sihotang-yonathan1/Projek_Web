@@ -10,7 +10,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "reservasi_form";
+$db = "user_form";
 
 $conn = new mysqli($host, $username, $password, $db);
 
