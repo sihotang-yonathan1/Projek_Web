@@ -11,8 +11,6 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-
     <head>
         <title>Beranda User</title>
         <meta charset="UTF-8">
@@ -30,6 +28,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
                 <li class="nav-item"><a href="#hero" class="nav-link clr-transition">Home</a></li>
                 <li class="nav-item"><a href="#products" class="nav-link clr-transition">Product</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link clr-transition">Developer</a></li>
                 <li class="nav-item"><a href="reservasi_dashboard.php" class="nav-link clr-transition">Reservasi</a></li>
             </ul>
             <div class="social-links">
@@ -77,33 +76,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
                     hingga atmosfer yang mengundang, Warongwarem menjadi pilihan utama bagi mereka yang mencari
                     kombinasi sempurna antara tradisi dan kemudahan dalam menyajikan pengalaman kuliner yang tak
                     terlupakan.</p>
-                <br><br>
-                <h3>Tim Developer</h3>
-            </div>
-            </div>
-            <div class="developer">
-                <div class="developer-one">
-                    <img src="gambar/lio.png" alt="" width="10px">
-                    <br>
-                    <p>Front End</p>
-                    <p>Natalio Michael Tumuahi</p>
-                </div>
-                <div class="developer-two">
-                    <img src="gambar/febrian1.jpg" alt="">
-                    <p>Front End</p>
-                    <p>Febrian Rezki Hemeto</p>
-                </div>
-                <div class="developer-three">
-                    <img src="gambar/matt.jpg" alt="">
-                    <p>Back End</p>
-                    <p>Yonatan Hot Gabe Sihotang</p>
-                </div>
-                <div class="developer-four">
-                    <img src="gambar/lino.jpg" alt="">
-                    <p>Back End</p>
-                    <p>Billy Juan Ambarura</p>
-                </div>
-            </div>
+                <br>
         </section>
 
         <!-- section three -->
