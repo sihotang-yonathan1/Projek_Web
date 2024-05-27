@@ -67,12 +67,6 @@ function logout() {
   window.location.href = "logout.php";
 }
 
-// Event Listeners
-addBtn.addEventListener("click", addUser);
-
-// Initialize table
-renderTable();
-
 function alertFunction() {
   alert("Reservasi berhasil dikonfirmasi!");
 }
