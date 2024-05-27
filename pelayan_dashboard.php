@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 require_once('crud_functions.php');
 require_once('./config.php');
@@ -23,7 +22,7 @@ $result = json_decode($_result, true);
 <head>
     <title>Dashboard Pelayan</title>
     <link rel="stylesheet" href="pelayan/style.css">
-    <link rel="icon" href="./image/img.jpg">
+    <link rel="icon" href="image/img.jpg">
 </head>
 
 <body>
@@ -42,10 +41,10 @@ $result = json_decode($_result, true);
         <tr>
             <th>No</th>
             <th>Nama Pelanggan</th>
-            <th>Tanggal Reservasi</th>
-            <th>Waktu Reservasi</th>
-            <th>Jumlah Orang</th>
-            <th>Meja</th>
+            <th>Tanggal Kedatangan</th>
+            <th>Waktu Kedatangan</th>
+            <th>Jumlah Tiket</th>
+            <th>Tipe Tiket</th>
             <th>Catatan Khusus</th>
             <th>Status</th>
             <th>Actions</th>
@@ -61,7 +60,7 @@ $result = json_decode($_result, true);
                     <td><?= $data['waktu'] ?></td>
                     <td><?= $data['jumlah_orang'] ?></td>
                     <td><?= $data['jenis_meja'] ?></td>
-                    <td><?= $data['catatan_khusus'] ?? "Tidak ada" ?></td>
+                    <td><?= $data['catatan_khusus'] ?></td>
                     <td><?= $data['status'] ?? "Tidak ada"?></td>
                     <td class='action-icons' id='action-icons'>
                         <!-- TODO: set in separate js file -->
@@ -95,14 +94,14 @@ $result = json_decode($_result, true);
             <label for="waktu">Waktu:</label>
             <input type="time" id="waktu" name="waktu" required><br>
 
-            <label for="jumlah_orang">Jumlah Orang:</label>
+            <label for="jumlah_orang">Jumlah Tiket:</label>
             <input type="number" id="jumlah_orang" name="jumlah_orang" required><br>
 
-            <label for="jenis_meja">Jenis Meja:</label>
+            <label for="jenis_meja">Tipe Tiket:</label>
             <select id="jenis_meja" name="jenis_meja" required>
-            <option value="meja-kecil">Meja Kecil</option>
-            <option value="meja-panjang">Meja Panjang</option>
-            <option value="meja-VIP">Meja VIP</option>
+            <option value="Ancol">Ancol</option>
+            <option value="Dufan Ancol">Dufan Ancol</option>
+            <option value="Sea World Ancol">Sea World Ancol</option>
             </select>
 
             <label for="catatan_khusus">Catatan Khusus:</label>
