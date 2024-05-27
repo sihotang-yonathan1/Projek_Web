@@ -32,4 +32,22 @@ class ReservasiHandler extends RequestHandler {
         mysqli_free_result($result);
         return $response;
     }
+
+    function POST(){
+        $req = json_decode($this->body, true);
+
+        $prepared_statement = $this->connection->prepare("
+            INSERT INTO reservasi_form 
+                (nama, tanggal, waktu, jumlah_orang, jenis_meja) 
+            VALUES (?, ?, ?, ?, ?)
+        ");
+        
+
+        $prepared_statement->bind_param(
+            "sssis", 
+            $req['nama'], $req['tanggal'], $req['waktu'], $req['jumlah_orang'], $req['jenis_meja']);
+        
+        $prepared_statement->execute();
+        return $req;
+        }
 }

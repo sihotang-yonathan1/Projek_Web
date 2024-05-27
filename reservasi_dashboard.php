@@ -7,41 +7,23 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     exit();
 }
 
-// TODO: encapsulate the DB connection process in one separate file
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
 
 $message = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // TODO: refactor repeated function
-    $name = $conn->real_escape_string($_POST['nama']);
-    $date = $conn->real_escape_string($_POST['tanggal']);
-    $time = $conn->real_escape_string($_POST['waktu']);
-    $user = $conn->real_escape_string($_POST['jumlah-orang']);
-    $jenis = $conn->real_escape_string($_POST['jenis-meja']);
-
-    // TODO: set this query string into prepared statement
-    $sql = "INSERT INTO reservasi_form (nama, tanggal, waktu, jumlah_orang, jenis_meja) VALUES ('$name', '$date', '$time', '$user', '$jenis')";
-
-    if ($conn->query($sql) === TRUE) {
-        $message = "Reservasi berhasil dilakukan!";
-    } else {
-        $message = "Error: " . $sql . "<br>" . $conn->error;
+    $_response = HttpClient::post("$PROJECT_URL/backend/api/v1/reservasi.php", [
+        "nama" => $_POST['nama'],
+        "tanggal" => $_POST['tanggal'],
+        "waktu" => $_POST['waktu'],
+        "jumlah_orang" => $_POST['jumlah-orang'],
+        "jenis_meja" => $_POST['jenis-meja']
+    ]);
+    if (!is_null(json_decode($_response))){
+        header('Location: ' . $_SERVER['PHP_SELF']);
     }
-    
-    
 }
-
-$conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -52,17 +34,6 @@ $conn->close();
     <link rel="stylesheet" type="text/css" href="./users/reservasi/style.css">
 
     <link rel="icon" href="./image/img.jpg">
-    <script>
-    <?php
-        // Output pesan sebagai variabel JavaScript
-        echo "var message = '" . $message . "';";
-        ?>
-
-    // Tampilkan alert jika pesan tidak kosong
-    if (message !== "") {
-        alert(message);
-    }
-    </script>
     <!-- TODO: refer this style in external file -->
     <style>
     .tombol {
@@ -86,7 +57,7 @@ $conn->close();
     <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
     <button class="tombol" onclick="logout()" style="position: relative; left: 1140px; bottom: 265px">Logout</button>
     <h1>Reservasi Meja </h1>
-    <form id="reservation-form" method="POST">
+    <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
 
         <label for="nama">Nama</label>
         <input type="text" id="nama" name="nama" required>
@@ -106,10 +77,10 @@ $conn->close();
             <option value="meja-panjang">Meja Panjang</option>
             <option value="meja-VIP">Meja VIP</option>
         </select><br>
-        <input type="submit" value="Reservasi">
+        <button type="submit">Reservasi</button>
     </form>
 
-    <script src="./users/reservasi/script.js"></script>
+    <!-- <script src="./users/reservasi/script.js"></script> -->
 </body>
 
 </html>
