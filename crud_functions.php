@@ -9,7 +9,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 $host = "localhost";
 $username = "root";
 $password = "";
-$db = "user_form";
+$db = "user_db";
 
 $conn = new mysqli($host, $username, $password, $db);
 

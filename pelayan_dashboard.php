@@ -1,6 +1,7 @@
 <?php
 session_start();
 
+require_once('crud_functions.php');
 require_once('./config.php');
 require_once('./utils/network/http_client.php');
 
@@ -22,7 +23,7 @@ $result = json_decode($_result, true);
 <head>
     <title>Dashboard Pelayan</title>
     <link rel="stylesheet" href="pelayan/style.css">
-    <link rel="icon" href="gambar/img.jpg">
+    <link rel="icon" href="./image/img.jpg">
 </head>
 
 <body>
@@ -50,9 +51,11 @@ $result = json_decode($_result, true);
             <th>Actions</th>
         </tr>
         <?php if (count($result) > 0): ?>
+            <!-- Ref: https://stackoverflow.com/questions/3560757/php-equivalent-to-pythons-enumerate -->
             <?php foreach($result as $data): ?>
                 <tr>
-                    <td><?= array_search($data, $result) + 1 ?></td>
+                    <?php $id_data = $data['id']; ?>
+                    <td><?= $id_data ?></td>
                     <td><?= $data['nama'] ?></td>
                     <td><?= $data['tanggal'] ?></td>
                     <td><?= $data['waktu'] ?></td>
@@ -62,11 +65,11 @@ $result = json_decode($_result, true);
                     <td><?= $data['status'] ?? "Tidak ada"?></td>
                     <td class='action-icons' id='action-icons'>
                         <!-- TODO: set in separate js file -->
-                        <a href='javascript:void(0)'>
+                        <a href='javascript:void(0)' onclick='showEditForm(<?= json_encode($data) ?>)'>
                             <img src='./image/edit.svg' alt='Edit'>
                         </a>
                         <!-- TODO: set in separate js file -->
-                        <a href='javascript:void(0)'>
+                        <a href='javascript:void(0)' onclick='confirmDelete(<?= $id_data ?>)'>
                             <img src='./image/trash.svg' alt='Delete'>
                         </a>
                     </td>
@@ -96,7 +99,7 @@ $result = json_decode($_result, true);
             <input type="number" id="jumlah_orang" name="jumlah_orang" required><br>
 
             <label for="jenis_meja">Jenis Meja:</label>
-            <select id="jenis-meja" name="jenis-meja" required>
+            <select id="jenis_meja" name="jenis_meja" required>
             <option value="meja-kecil">Meja Kecil</option>
             <option value="meja-panjang">Meja Panjang</option>
             <option value="meja-VIP">Meja VIP</option>
