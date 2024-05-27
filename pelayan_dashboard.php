@@ -63,11 +63,11 @@ $result = json_decode($_result, true);
                     <td class='action-icons' id='action-icons'>
                         <!-- TODO: set in separate js file -->
                         <a href='javascript:void(0)'>
-                            <img src='gambar/edit.svg' alt='Edit'>
+                            <img src='./image/edit.svg' alt='Edit'>
                         </a>
                         <!-- TODO: set in separate js file -->
                         <a href='javascript:void(0)'>
-                            <img src='gambar/trash.svg' alt='Delete'>
+                            <img src='./image/trash.svg' alt='Delete'>
                         </a>
                     </td>
                 </tr>
