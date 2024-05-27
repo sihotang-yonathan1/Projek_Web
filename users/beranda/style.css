@@ -33,9 +33,20 @@ body {
   font-family: "Pompiere", cursive;
   font-size: 1.2rem;
   color: var(--text-clr);
-  background: url("../../image/bg.jpg") no-repeat center center fixed;
+  background: url("../../image/bg.jpeg") no-repeat center center fixed;
   background-size: cover;
   transition: background-color 1000ms;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 
 ul {
@@ -261,11 +272,13 @@ header {
   max-width: 50rem;
   color: var(--text-clr);
   transition: font-size 1000ms;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 .hook-sub_title {
   font-size: 30px;
   line-height: 157.5%;
   color: var(--text-clr);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
 @media screen and (min-width: 414px) {
   .hook-title {
@@ -278,32 +291,66 @@ header {
   background-color: var(--sec-two-bg-clr);
 }
 
-.judul_dev {
-  margin-left: 50px;
-}
-.developer {
-  margin-left: 50px;
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap-reverse;
-  text-align: center;
+.about {
+  padding: 7.5rem 7% 1.4rem;
+  background-color: #f4f4f4;
 }
 
-.developer-one img {
-  max-width: calc(200 * 0.06rem);
-  margin-right: 30px;
+.about h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 3rem;
+  color: rgb(73, 73, 73);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
-.developer-two img {
-  max-width: calc(150 * 0.06rem);
-  margin-right: 30px;
+
+.about h2 span {
+  color: var(--primary);
 }
-.developer-three img {
-  max-width: calc(130 * 0.06rem);
-  margin-right: 30px;
+
+.about .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-.developer-four img {
-  max-width: calc(160 * 0.06rem);
-  margin-right: 30px;
+
+.about .row .content {
+  display: flex;
+  width: 80%;
+  height: 15rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  margin-bottom: 1rem;
+}
+
+.about .row .content .about-img {
+  display: flex;
+  flex: 1 1 1rem;
+}
+
+.about .row .content .about-img img {
+  width: 13rem;
+  height: auto;
+}
+
+.about .row .content .text {
+  flex: 1 1 46rem;
+  padding: 0 1rem;
+  color: #fefefe;
+  background-color: #222;
+}
+
+.about .row .content .text h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.about .row .content .text p {
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+  font-weight: 300;
+  line-height: 1.6rem;
+  text-align: justify;
 }
 
 /* ----- section three: Ad products section ----- */
@@ -311,7 +358,21 @@ header {
   margin-bottom: 2rem;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
+
+.section-three::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
+}
+
 @media screen and (min-width: 843px) {
   .section-three {
     margin-bottom: 0;
@@ -323,14 +384,15 @@ header {
   }
   .section-three {
     align-items: flex-start;
-    background: url("RPL-PROJECT/image/bg.jpg");
+    background: url("image/bg.jpg");
   }
 }
 
 .s-three-upper-img-container img {
   width: 100%;
   margin-bottom: 1.3rem;
-  transition: width 1000ms;
+  height: 22rem;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 2);
 }
 @media screen and (min-width: 992px) {
   .s-three-upper-img-container img {
@@ -352,13 +414,16 @@ header {
   max-width: 20rem;
   margin-bottom: 1.5rem;
   color: var(--primary-clr-alt);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 2.7);
 }
 .s-three-desc {
   margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 2.7);
 }
 .s-three-price {
   font-size: 1.4rem;
   margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 2.7);
 }
 .ad-buy-btn {
   max-width: calc(147 * 0.06rem);
@@ -408,7 +473,7 @@ header {
   cursor: pointer;
   /* From https://css.glass */
   background: rgba(54, 79, 99, 0.04);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8.4px);
   -webkit-backdrop-filter: blur(8.4px);
   width: 100%;
@@ -447,13 +512,16 @@ header {
 }
 
 .product-one img {
-  max-width: calc(300 * 0.06rem);
+  width: calc(300 * 0.06rem);
+  height: calc(300 * 0.06rem);
 }
 .product-two img {
-  max-width: calc(300 * 0.06rem);
+  width: calc(300 * 0.06rem);
+  height: calc(300 * 0.06rem);
 }
 .product-three img {
-  max-width: calc(300 * 0.06rem);
+  width: calc(300 * 0.06rem);
+  height: calc(300 * 0.06rem);
 }
 @media screen and (min-width: 700px) {
   .product {
@@ -468,6 +536,9 @@ header {
 
 .product .buy-btn {
   cursor: pointer;
+  font-family: "Pompiere";
+  font-size: 1.4rem;
+  font-weight: 700;
   bottom: 0;
   left: -0.1rem;
   margin: 0 0 0.5rem 0;
@@ -475,7 +546,9 @@ header {
   color: var(--text-clr-bg);
   background-color: var(--primary-clr);
   clip-path: polygon(100% 0, 75% 50%, 100% 100%, 0 100%, 0% 50%, 0 0);
+  border: none;
 }
+
 .product .buy-btn:hover {
   text-decoration: underline;
 }
