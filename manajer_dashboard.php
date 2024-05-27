@@ -25,13 +25,13 @@ header("Content-Type: text/html; charset=UTF-8");
     <meta charset="UTF-8" />
     <title>Dashboard Manajer</title>
     <link rel="stylesheet" href="./manajer/style.css" />
-    <link rel="icon" href="gambar/img.jpg">
+    <link rel="icon" href="image/img.jpg">
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <a href="#">WarongWarem</a>
+            <a href="#">ANCOL</a>
             <div class="search_box">
                 <input type="text" placeholder="Search ">
             </div>
@@ -56,20 +56,20 @@ header("Content-Type: text/html; charset=UTF-8");
 
             <div class="promo_card" style="height: 125px; margin: 20px;">
                 <h1>Welcome </h1>
-                <span>Manajer WarongWarem</span>
+                <span>Manajer Ancol</span>
             </div>
 
             <div class=" history_lists">
                 <div class="list1">
                     <div class="row" style="margin: 1rem 40px;">
-                        <h4>Laporan Reservasi</h4>
+                        <h4>Laporan Tiket</h4>
                     </div>
                     <table style="margin: 0 40px;">
                         <tr>
                             <th>Tanggal</th>
                             <th>Waktu</th>
-                            <th>Jumlah Orang</th>
-                            <th>Jenis Meja</th>
+                            <th>Jumlah Tiket</th>
+                            <th>Tipe Tiket</th>
                             <th>Status</th>
                         </tr>
                         <?php foreach ($result as $data): ?>
@@ -86,7 +86,7 @@ header("Content-Type: text/html; charset=UTF-8");
 
                 <div class="list2">
                     <div class="row">
-                        <h4>Manajemen Meja</h4>
+                        <h4>Manajemen Tiket</h4>
                     </div>
                     <table>
                         <tr>
