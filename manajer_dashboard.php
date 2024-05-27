@@ -1,35 +1,17 @@
 <?php
 session_start();
 
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
+
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     // Pengguna belum login, arahkan ke halaman login
     header("Location: index.php");
     exit();
 }
-
-// Koneksi ke database (ganti dengan detail koneksi Anda)
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
-
-// Query untuk mendapatkan data reservasi
-$query = "SELECT * FROM reservasi_form";
-$result = $conn->query($query);
-// Ambil data reservasi ke dalam array
-$reservasiData = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $reservasiData[] = $row;
-    }
-}
+$max_items_number = 3;
+$_result = HttpClient::get("$PROJECT_URL/backend/api/v1/reservasi.php?max_items_number=$max_items_number");
+$result = json_decode($_result, true);
 
 ?>
 
@@ -42,9 +24,8 @@ header("Content-Type: text/html; charset=UTF-8");
 <head>
     <meta charset="UTF-8" />
     <title>Dashboard Manajer</title>
-    <link rel="stylesheet" href="manajer/style.css" />
-    <link rel="icon" href="/rpl-project/image/img.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./manajer/style.css" />
+    <link rel="icon" href="gambar/img.jpg">
 </head>
 
 <body>
@@ -53,7 +34,6 @@ header("Content-Type: text/html; charset=UTF-8");
             <a href="#">WarongWarem</a>
             <div class="search_box">
                 <input type="text" placeholder="Search ">
-                <i class="fas fa-search"></i>
             </div>
         </div>
 
@@ -92,22 +72,15 @@ header("Content-Type: text/html; charset=UTF-8");
                             <th>Jenis Meja</th>
                             <th>Status</th>
                         </tr>
-                        <?php
-                        $counter = 0;
-                        foreach ($reservasiData as $row) {
-                            echo "<tr>
-                                <td>" . $row['tanggal'] . "</td>
-                                <td>" . $row['waktu'] . "</td>
-                                <td>" . $row['jumlah_orang'] . "</td>
-                                <td>" . $row['jenis_meja'] . "</t>
-                                <td>" . ($row['status'] ?? 'Belum Konfirmasi') . "</td>
-                                </tr>";
-                            $counter++;
-                            if ($counter >= 3) {
-                                break; // Hentikan iterasi setelah tiga baris
-                            }
-                        }
-                        ?>
+                        <?php foreach ($result as $data): ?>
+                            <tr>
+                                <td><?= $data['tanggal'] ?></td>
+                                <td><?= $data['waktu'] ?></td>
+                                <td><?= $data['jumlah_orang'] ?></td>
+                                <td><?= $data['jenis_meja'] ?></td>
+                                <td><?= $data['status'] ?? 'Belum konfigurasi' ?></td>
+                            </tr>
+                        <?php endforeach ?>
                     </table>
                 </div>
 
@@ -120,29 +93,19 @@ header("Content-Type: text/html; charset=UTF-8");
                             <th>Nama Pelanggan</th>
                             <th>Status</th>
                         </tr>
-                        <?php
-                        $counter = 0;
-                        foreach ($reservasiData as $row) {
-                            echo "<tr>
-                                <td>" . $row['nama'] . "</td>
-                                <td>" . ($row['status'] ?? 'Belum Konfirmasi') . "</td>
-                                </tr>";
-                            $counter++;
-                            if ($counter >= 3) {
-                                break; // Hentikan iterasi setelah tiga baris
-                            }
-                        }
-
-                        //close koneksi
-                        $conn->close();
-                        ?>
+                        <?php foreach ($result as $data): ?>
+                            <tr>
+                                <td><?= $data['nama']?></td>
+                                <td><?= $data['status'] ?? 'Belum Konfirmasi' ?></td>
+                            </tr>
+                        <?php endforeach ?>
                     </table>
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="manajer/script.js"></script>
+    <script src="./manajer/script.js"></script>
 </body>
 
 </html>

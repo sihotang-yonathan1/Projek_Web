@@ -2,6 +2,8 @@
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // TODO: encapsulate the DB connection process in one separate file
+
     // Koneksi ke database
     $servername = "localhost";
     $username = "root"; // Ganti dengan username Anda

@@ -1,35 +1,17 @@
 <?php
 session_start();
 
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
+
 if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     // Pengguna belum login, arahkan ke halaman login
     header("Location: index.php");
     exit();
 }
 
-// Koneksi ke database (ganti dengan detail koneksi Anda)
-$host = "localhost";
-$username = "root";
-$password = "";
-$db = "user_db";
-
-$conn = new mysqli($host, $username, $password, $db);
-
-// Periksa koneksi
-if ($conn->connect_error) {
-    die("Koneksi Gagal: " . $conn->connect_error);
-}
-
-// Query untuk mendapatkan data reservasi
-$query = "SELECT * FROM reservasi_form";
-$result = $conn->query($query);
-// Ambil data reservasi ke dalam array
-$reservasiData = array();
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $reservasiData[] = $row;
-    }
-}
+$_result = HttpClient::get("$PROJECT_URL/backend/api/v1/reservasi.php");
+$result = json_decode($_result, true);
 
 ?>
 <!DOCTYPE html>
@@ -39,9 +21,8 @@ if ($result->num_rows > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Manajer</title>
-    <link rel="stylesheet" href="manajer/manajemen_meja/style.css">
-    <link rel="icon" href="/rpl-project/image/img.jpg">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+    <link rel="stylesheet" href="./manajer/manajemen_meja/style.css">
+    <link rel="icon" href="gambar/img.jpg">
 </head>
 
 <body>
@@ -50,7 +31,6 @@ if ($result->num_rows > 0) {
             <a href="#">WarongWarem</a>
             <div class="search_box">
                 <input type="text" placeholder="Search ">
-                <i class="fas fa-search"></i>
             </div>
         </div>
 
@@ -76,15 +56,12 @@ if ($result->num_rows > 0) {
                         <th>Nama Pelanggan</th>
                         <th>Status</th>
                     </tr>
-                    <?php
-                        foreach ($reservasiData as $row) {
-                            echo "<tr>
-                        <td>" . $row['nama'] . "</td>
-                        <td>" . ($row['status'] ?? 'Belum Konfirmasi') . "</td>
-                      </tr>";
-                    }
-                $conn->close();
-                ?>
+                    <?php foreach($result as $data): ?>
+                        <tr>
+                            <td><?= $data['nama']?></td>
+                            <td><?= $data['status'] ?? 'Belum Konfirmasi' ?> </td>
+                        </tr>
+                    <?php endforeach ?>
                 </table>
             </div>
         </div>
