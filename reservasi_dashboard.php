@@ -32,30 +32,51 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <title>Reservasi Meja Restoran WarongWarem</title>
     <link rel="stylesheet" type="text/css" href="./users/reservasi/style.css">
+    <link rel="stylesheet" type="text/css" href="./users/beranda/style.css">
 
     <link rel="icon" href="./image/img.jpg">
     <!-- TODO: refer this style in external file -->
-    <style>
-    .tombol {
-        background-color: rgb(103, 202, 45);
-        width: 60px;
-        height: 30px;
-        margin-left: 30px;
-        color: #f5fdff;
-        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-        border-radius: 12%;
-    }
-
-    .tombol:hover {
-        background-color: rgb(198, 21, 21);
-    }
-    </style>
 </head>
 
 <body>
+<header class="container">
+      <a href="#hero" class="logo clr-transition">ANCOL</a>
+      <nav class="navbar">
+        <ul class="nav-items">
+          <li class="nav-item">
+            <a href="beranda_dashboard.php#hero" class="nav-link clr-transition"
+              >Home</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="beranda_dashboard.php#products"
+              class="nav-link clr-transition"
+              >Tiket</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              href="beranda_dashboard.php#about"
+              class="nav-link clr-transition"
+              >About</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="about.html" class="nav-link clr-transition">Developer</a>
+          </li>
+          <li class="nav-item">
+            <a href="reservasi_dashboard.php" class="nav-link clr-transition"
+              >Reservasi</a
+            >
+          </li>
+        </ul>
+
+        <button class="tombol" onclick="logout()">Logout</button>
+      </nav>
+    </header>
     <!-- TODO: set style in external file -->
     <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
-    <button class="tombol" onclick="logout()" style="position: relative; left: 1140px; bottom: 265px">Logout</button>
     <h1>Reservasi Meja </h1>
     <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
 
@@ -71,11 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="jumlah-orang">Jumlah Orang:</label>
         <input type="number" id="jumlah-orang" name="jumlah-orang" required><br>
 
-        <label for="jenis-meja">Jenis Meja:</label>
+        <label for="jenis-meja">Tipe Tiket:</label>
         <select id="jenis-meja" name="jenis-meja" required>
-            <option value="meja-kecil">Meja Kecil</option>
-            <option value="meja-panjang">Meja Panjang</option>
-            <option value="meja-VIP">Meja VIP</option>
+            <option value="Ancol">Ancol</option>
+            <option value="Dufan Ancol">Dufan Ancol</option>
+            <option value="Sea World Ancol">Sea World Ancol</option>
         </select><br>
         <button type="submit">Reservasi</button>
     </form>
