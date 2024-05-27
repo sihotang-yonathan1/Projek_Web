@@ -22,13 +22,13 @@ $result = json_decode($_result, true);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Manajer</title>
     <link rel="stylesheet" href="./manajer/manajemen_meja/style.css">
-    <link rel="icon" href="gambar/img.jpg">
+    <link rel="icon" href="image/img.jpg">
 </head>
 
 <body>
     <header class="header">
         <div class="logo">
-            <a href="#">WarongWarem</a>
+            <a href="#">ANCOL</a>
             <div class="search_box">
                 <input type="text" placeholder="Search ">
             </div>
@@ -42,14 +42,14 @@ $result = json_decode($_result, true);
             <div class="side_navbar">
                 <span>Main Menu</span>
                 <a href="manajer_dashboard.php" class="active">Dashboard</a>
-                <a href=" laporan_reservasi.php" class="active">Laporan Reservasi</a>
-                <a href="manejemen_meja.php" class="active">Manajemen Meja</a>
+                <a href=" laporan_reservasi.php" class="active">Laporan Tiket</a>
+                <a href="manejemen_meja.php" class="active">Manajemen Tiket</a>
             </div>
         </nav>
         <div class=" history_lists">
             <div class="list1">
                 <div class="row">
-                    <h4>Manajemen Meja</h4>
+                    <h4>Manajemen Tiket</h4>
                 </div>
                 <table>
                     <tr>
