@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <div class="center-wrap">
                             <div class="section-text-center">
                                 <h4>Log In</h4>
-                                <img class="pp" src="./image/pp.png" alt="bg" width="100px">
+                                <img class="pp" src="image/pp.png" alt="bg" width="100px">
                                 <form method="post">
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-style" placeholder="Your Email" id="email" autocomplete="off">

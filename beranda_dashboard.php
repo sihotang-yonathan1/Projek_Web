@@ -15,17 +15,17 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="./users/beranda/style.css">
-        <link rel="icon" href="./image/img.jpg">
+        <link rel="stylesheet" href="users/beranda/style.css">
+        <link rel="icon" href="image/img.jpg">
     </head>
 
 <body>
     <header class="container">
-        <a href="#hero" class="logo clr-transition">Restaurant</a>
+        <a href="#hero" class="logo clr-transition">ANCOL</a>
         <nav class="navbar">
             <ul class="nav-items">
                 <li class="nav-item"><a href="#hero" class="nav-link clr-transition">Home</a></li>
-                <li class="nav-item"><a href="#products" class="nav-link clr-transition">Product</a></li>
+                <li class="nav-item"><a href="#products" class="nav-link clr-transition">Tiket</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link clr-transition">Developer</a></li>
                 <li class="nav-item"><a href="./reservasi_dashboard.php" class="nav-link clr-transition">Reservasi</a></li>
@@ -44,7 +44,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <section class="section-one">
             <div class="container hook-container">
                 <h1 class="hook-title clr-transition">Selamat Datang!</h1>
-                <h2 class="hook-sub_title clr-transition">Warongwarem Restaurant.</h2>
+                <h2 class="hook-sub_title clr-transition">Nikmati keindahan, petualangan seru, dan berbagai <br/> atraksi menarik di destinasi rekreasi favorit keluarga.</h2>
             </div>
         </section>
 
@@ -53,42 +53,30 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             <div class="oath-container">
                 <h3>Deskripsi</h3>
                 <br>
-                <p>Warongwarem adalah destinasi kuliner yang menghadirkan pengalaman makan tak terlupakan dengan
-                    berbagai keunggulan. Dengan konsep warung tradisional yang dirancang modern, tempat ini memadukan
-                    nuansa hangat dan suasana ramah untuk menciptakan ruang bersantap yang nyaman. Menu Warongwarem
-                    Reservasi menawarkan seleksi hidangan autentik Indonesia, dari nasi goreng yang gurih hingga rendang
-                    yang lezat, memanjakan lidah para pelanggan.
+                <p>Ancol adalah sebuah kompleks wisata terkenal yang terletak di Pantai Utara Jakarta, Indonesia. Kompleks ini menawarkan beragam atraksi dan fasilitas rekreasi yang menarik bagi pengunjung dari berbagai kalangan.
 
-                    Keistimewaan Warongwarem terletak pada kemudahan pemesanan. Dengan sistem reservasi yang canggih,
-                    pelanggan dapat dengan mudah memesan meja secara online, memastikan pengalaman makan yang lancar dan
-                    tanpa hambatan. Sebagai tambahan, pilihan tempat duduk yang nyaman dan privasi yang dijaga
-                    membuatnya cocok untuk acara keluarga, pertemuan bisnis, atau perayaan khusus.
+Ancol menawarkan pengalaman liburan yang lengkap dengan kombinasi pantai, hiburan, dan rekreasi alam di tengah kesibukan kota Jakarta. Dikelilingi oleh pemandangan laut yang menakjubkan, Ancol menjadi tempat yang ideal untuk bersantai sambil menikmati udara segar pantai.
 
-                    Warongwarem Reservasi hanya memanjakan selera dengan hidangan lezat, tetapi juga menawarkan layanan
-                    pelanggan yang unggul. Dengan staf yang profesional dan ramah, pengunjung merasa dihargai dan
-                    dilayani dengan baik sejak saat pertama kali masuk. Tempat ini juga sering mengadakan acara khusus,
-                    seperti pameran seni, pertunjukan musik, atau tema kuliner tertentu, menambahkan dimensi hiburan dan
-                    keunikan pada pengalaman makan.
+Salah satu daya tarik utama Ancol adalah Taman Impian Jaya Ancol, yang sering disebut sebagai Ancol Dreamland. Di sini, pengunjung dapat menemukan berbagai wahana hiburan, termasuk Atlantis Water Adventure, Dunia Fantasi (Dufan), SeaWorld Ancol, dan masih banyak lagi. Setiap wahana menawarkan pengalaman yang menyenangkan bagi pengunjung dari segala usia.
 
-                    Dengan perpaduan antara citra tradisional dan layanan modern, Warongwarem Reservasi tidak hanya
-                    menjadi tempat makan, tetapi juga destinasi untuk menciptakan kenangan berharga. Dari masakan lezat
-                    hingga atmosfer yang mengundang, Warongwarem menjadi pilihan utama bagi mereka yang mencari
-                    kombinasi sempurna antara tradisi dan kemudahan dalam menyajikan pengalaman kuliner yang tak
-                    terlupakan.</p>
+Selain wahana hiburan, Ancol juga memiliki fasilitas rekreasi alam yang menarik seperti Pantai Carnaval, tempat pengunjung dapat menikmati keindahan pantai sambil bermain permainan tradisional atau bersantai di tepi pantai. Ada juga pusat perbelanjaan, restoran, dan hotel-hotel yang menyediakan berbagai fasilitas bagi wisatawan yang ingin menginap.
+
+Ancol juga terkenal dengan pantainya yang bersih dan indah, menawarkan pengalaman bersantai yang menyenangkan bagi pengunjung yang ingin menikmati keindahan alam serta aktivitas air seperti berenang atau berlayar.
+
+Secara keseluruhan, Ancol adalah destinasi wisata yang populer di Jakarta yang menawarkan kombinasi sempurna antara hiburan, rekreasi alam, dan keindahan alam pantai yang memukau. Dengan beragam atraksi dan fasilitasnya, Ancol merupakan tempat yang cocok untuk liburan keluarga atau sekadar bersantai bersama teman-teman.</p>
                 <br>
         </section>
 
         <!-- section three -->
         <section class="section-three container"
-            style="background: url('./image/bg.jpg') no-repeat center center fixed ; background-size:  cover">
+            style="background: url('./image/bg.jpeg') no-repeat center center fixed ; background-size:  cover">
             <div class=" s-three-upper-img-container">
-                <img src="./image/Nasi-Goreng-Seafood.jpg" alt="" loading="lazy">
+                <img src="./image/gg1.jpg" alt="" loading="lazy">
             </div>
             <div class="s-three-lower-container">
-                <h3 class=" s-three-title">Stress out? Silakan coba makan ditempat kami.</h3>
-                <p class="s-three-desc s-definition">Makanan kami autentik Indonesia, dari nasi goreng yang gurih hingga
-                    rendang yang lezat, memanjakan lidah para pelanggan.</p>
-                <span class="s-three-price">Ayo pesan tempat sekarang, sebelum kehabisan.</span>
+                <h3 class=" s-three-title">Stress out? Silakan coba berlibur ditempat kami.</h3>
+                <p class="s-three-desc s-definition">Jadikan Ancol destinasi liburan Anda berikutnya - dengan berbagai wahana hiburan, pantai yang indah, dan suasana menyenangkan, Ancol memiliki segalanya!</p>
+                <span class="s-three-price">Ayo pesan tiket sekarang, sebelum kehabisan.</span>
                 <a href="reservasi_dashboard.php"> <button class="button ad-buy-btn">Order Now</button></a>
             </div>
         </section>
@@ -96,28 +84,27 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
         <!-- section four -->
         <section id="products" class="section-two container">
             <div class="s-two-upper-info">
-                <h2 class="s-two-slogan">WarongWarem Restorant, Tempat Nyaman, Makan Lezat, Kenangan Tak Terlupakan!.
+                <h2 class="s-two-slogan">Temukan petualangan tanpa batas di Ancol - destinasi liburan terbaik untuk keluarga Anda
                 </h2>
                 <p class="s-definition">
-                    Makanan kami autentik Indonesia, dari nasi goreng yang gurih hingga rendang yang lezat, memanjakan
-                    lidah para pelanggan.
+                Nikmati kelezatan kuliner lokal, dan ciptakan kenangan tak terlupakan di Ancol. Dengan beragam atraksi dan fasilitas untuk segala usia, Ancol adalah pilihan ideal untuk liburan keluarga yang menyenangkan dan bermakna
                 </p>
             </div>
             <div class="s-two-products">
                 <div class="product product-one">
-                    <img src="./image/dinner-table-444797_1280.jpg" loading="lazy">
-                    <h3 class="buy-btn pos-abs-center">Order</h3>
-                    <h3 class="name pos-abs-center">Meja <b>VIP</b></h3>
+                    <img src="./image/anc.jpeg" loading="lazy">
+                    <a href="reservasi_dashboard.php"><button class="buy-btn pos-abs-center" >Order</button></a>
+                    <h3 class="name pos-abs-center">Ancol</h3>
                 </div>
                 <div class="product product-two">
-                    <img src="./image/mejaPanjang.png" alt="" loading="lazy">
-                    <h3 class="buy-btn pos-abs-center">Order</h3>
-                    <h3 class="name pos-abs-center">Meja <b>Panjang</b></h3>
+                    <img src="./image/duf.jpeg" alt="" loading="lazy">
+                    <a href="reservasi_dashboard.php"><button class="buy-btn pos-abs-center" >Order</button></a>
+                    <h3 class="name pos-abs-center">Dufan <b>Ancol</b></h3>
                 </div>
                 <div class="product product-three">
-                    <img src="./image/restaurant-766050_1280.jpg" alt="ice cream with honey" loading="lazy">
-                    <h3 class="buy-btn pos-abs-center">Order</h3>
-                    <h3 class="name pos-abs-center">Meja <b>Kecil</b></h3>
+                    <img src="./image/sea.jpeg" alt="ice cream with honey" loading="lazy">
+                    <a href="reservasi_dashboard.php"><button class="buy-btn pos-abs-center" >Order</button></a>
+                    <h3 class="name pos-abs-center">Sea World <b>Ancol</b></h3>
                 </div>
             </div>
         </section>
@@ -126,7 +113,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
     <!-- FOOTER -->
     <footer id="contact" class="footer container">
         <div class="lower-footer">
-            <span class="lower-footer-elt" id="lower-footer-elt1">copyright ©2024 Reservasi</span>
+            <span class="lower-footer-elt" id="lower-footer-elt1">copyright ©2024 Ancol</span>
             <span class="lower-footer-elt" id="lower-footer-elt2">Developed by Kelompok 2 Pemrograman Web</span>
             <span class="lower-footer-elt" id="lower-footer-elt3"><a href="#" class="policy-link">Privacy • Policy</a></span>
         </div>
