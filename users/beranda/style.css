@@ -224,12 +224,17 @@ header {
 }
 .nav-icon {
   cursor: pointer;
-  color: var(--nav-txt-clr);
-  font-size: 1.4rem;
+  transition: filter 0.3s ease;
 }
-.nav-icon:hover {
-  color: var(--bg-clr);
+.nav-icon img {
+  filter: brightness(0) saturate(100%) invert(99%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(108%) contrast(100%);
 }
+.nav-icon:hover img {
+  filter: brightness(0) saturate(100%) invert(83%) sepia(7%) saturate(1573%)
+    hue-rotate(218deg) brightness(95%) contrast(88%);
+}
+
 @media screen and (max-width: 768px) {
   .nav-icon {
     color: var(--text-clr-bg);
