@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <!-- TODO: set style in external file -->
     <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
-    <h1>Reservasi Meja </h1>
+    <h1>Pemesanan Tiket </h1>
     <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
 
         <label for="nama">Nama</label>
