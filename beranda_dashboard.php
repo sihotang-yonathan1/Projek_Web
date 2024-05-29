@@ -32,9 +32,9 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
             </ul>
             <div class="social-links">
                 <ul>
-                    <li><i class='bx bxl-instagram nav-icon'></i></li>
-                    <li><i class='bx bxl-twitter nav-icon'></i></li>
-                    <li><i class='bx bxl-facebook nav-icon'></i></li>
+                    <li><a class="nav-icon" href="https://www.instagram.com/ancoltamanimpian/"><img class="nav-icon" src="image/instagram.svg" alt="Instagram" /></a></li>
+                    <li><a class="nav-icon" href="https://x.com/ancoltmnimpian"><img class="nav-icon" src="image/twitter.svg" alt="Twitter" /></a></li>
+                    <li><a class="nav-icon" href="https://www.facebook.com/ancolseaworld/"><img class="nav-icon" src="image/facebook.svg" alt="Facebook" /></a></li>
                 </ul>
             </div>
             <button class="tombol" onclick="logout()">Logout</button>
