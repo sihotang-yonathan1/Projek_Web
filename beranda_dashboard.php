@@ -118,7 +118,6 @@ Secara keseluruhan, Ancol adalah destinasi wisata yang populer di Jakarta yang m
             <span class="lower-footer-elt" id="lower-footer-elt3"><a href="#" class="policy-link">Privacy • Policy</a></span>
         </div>
     </footer>
-    <link href=' https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script src="./users/beranda/script.js"></script>
 </body>
 
