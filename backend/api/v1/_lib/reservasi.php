@@ -11,14 +11,14 @@ class ReservasiHandler extends RequestHandler {
 
         $prepared_statement = $this->connection->prepare("
             SELECT 
-                id, nama, tanggal, waktu, jumlah_orang, jenis_meja 
+                id, nama, tanggal, waktu, jumlah_orang, jenis_meja, catatan_khusus
             FROM reservasi_form
         ");
         
         if ($max_items_number != -1){
             $prepared_statement = $this->connection->prepare("
                 SELECT 
-                    id, nama, tanggal, waktu, jumlah_orang, jenis_meja 
+                    id, nama, tanggal, waktu, jumlah_orang, jenis_meja, catatan_khusus 
                 FROM reservasi_form LIMIT ?
             ");
             $prepared_statement->bind_param("i", $max_items_number);
