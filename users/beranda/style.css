@@ -317,14 +317,17 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  z-index: 1;
 }
 
 .about .row .content {
   display: flex;
   width: 80%;
   height: 15rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  position: relative;
   margin-bottom: 1rem;
+  overflow: hidden;
+  z-index: 1;
 }
 
 .about .row .content .about-img {
@@ -335,13 +338,35 @@ header {
 .about .row .content .about-img img {
   width: 13rem;
   height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  z-index: 3;
 }
 
 .about .row .content .text {
   flex: 1 1 46rem;
+  z-index: 2;
+  height: 15rem;
+  width: 0;
   padding: 0 1rem;
   color: #fefefe;
   background-color: #222;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 1);
+  left: -13rem;
+  position: absolute;
+  transition: all 0.3s ease;
+}
+.about .row .content .text.active {
+  flex: 1 1 46rem;
+  z-index: 2;
+  height: 15rem;
+  width: 100%;
+  padding: 0 1rem;
+  color: #fefefe;
+  background-color: #222;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  left: 13rem;
+  position: absolute;
+  transition: all 0.3s ease;
 }
 
 .about .row .content .text h3 {
@@ -365,12 +390,31 @@ header {
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  left: 13rem;
+  width: 10%;
+  z-index: 3;
+  height: 15rem;
+  position: absolute;
+  transition: all 0.1s ease;
+}
+.toggle-btn.active {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  left: 90%;
+  width: 10%;
+  z-index: 3;
+  transition: all 0.4s ease;
 }
 
 .toggle-btn:hover {
   background-color: #555;
 }
-
 /* ----- section three: Ad products section ----- */
 .section-three {
   margin-bottom: 2rem;
