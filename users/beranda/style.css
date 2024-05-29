@@ -358,6 +358,19 @@ header {
   text-align: justify;
 }
 
+.toggle-btn {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+  background-color: #555;
+}
+
 /* ----- section three: Ad products section ----- */
 .section-three {
   margin-bottom: 2rem;
