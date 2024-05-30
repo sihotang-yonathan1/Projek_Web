@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </li>
           <li class="nav-item">
             <a href="reservasi_dashboard.php" class="nav-link clr-transition"
-              >Reservasi</a
+              >Pemesanan</a
             >
           </li>
         </ul>
