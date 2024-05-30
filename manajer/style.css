@@ -75,11 +75,12 @@ nav {
 .side_navbar {
   padding: 1px;
   display: flex;
+
   flex-direction: column;
 }
 .side_navbar span {
   color: gray;
-  margin: 1rem 3rem;
+  padding: 1rem 3rem;
   font-size: 12px;
 }
 .side_navbar a {
@@ -98,8 +99,11 @@ nav {
 
 /* Main Body Section */
 .main-body {
-  width: 70%;
+  width: 100%;
   padding: 1rem;
+}
+h2 {
+  margin-left: 12px;
 }
 .promo_card {
   width: 98%;
@@ -109,14 +113,14 @@ nav {
   border-radius: 8px;
   height: 120px;
   background: rgb(37, 37, 37);
-  margin-left: 20px;
   padding: 20px 0;
 }
+
 .promo_card h1,
-.promo_card span,
-button {
-  margin: 10px;
+.promo_card span {
+  margin-left: 15px;
 }
+
 .promo_card button {
   display: block;
   padding: 6px 12px;
