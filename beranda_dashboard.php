@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
                 <li class="nav-item"><a href="#products" class="nav-link clr-transition">Tiket</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link clr-transition">Developer</a></li>
-                <li class="nav-item"><a href="./reservasi_dashboard.php" class="nav-link clr-transition">Reservasi</a></li>
+                <li class="nav-item"><a href="./reservasi_dashboard.php" class="nav-link clr-transition">Pemesanan</a></li>
             </ul>
             <div class="social-links">
                 <ul>
