@@ -304,75 +304,78 @@ header {
 .about h2 {
   text-align: center;
   font-size: 2.6rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   color: rgb(73, 73, 73);
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 .about h2 span {
-  color: var(--primary);
+  color: var(--sec-two-bg-clr);
 }
 
 .about .row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   z-index: 1;
 }
 
 .about .row .content {
   display: flex;
-  width: 80%;
+  width: 45%;
   height: 15rem;
-  position: relative;
+  justify-content: center;
   margin-bottom: 1rem;
-  overflow: hidden;
-  z-index: 1;
-}
 
-.about .row .content .about-img {
-  display: flex;
-  flex: 1 1 1rem;
-}
-
-.about .row .content .about-img img {
-  width: 13rem;
-  height: auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   z-index: 3;
 }
 
-.about .row .content .text {
-  flex: 1 1 46rem;
-  z-index: 2;
-  height: 15rem;
-  width: 0;
-  padding: 0 1rem;
-  color: #fefefe;
-  background-color: #222;
-  box-shadow: 0 0 0px rgba(0, 0, 0, 1);
-  left: -13rem;
-  position: absolute;
+.about .row .content .about-img {
+  position: relative;
+  width: 30%;
+  z-index: 3;
+  left: 1rem;
   transition: all 0.3s ease;
 }
-.about .row .content .text.active {
-  flex: 1 1 46rem;
-  z-index: 2;
+.about .row .content .about-img.active {
+  position: relative;
+  width: 30%;
+  z-index: 3;
+  left: 0;
+  transition: all 0.3s ease;
+}
+
+.about .row .content .about-img img {
   height: 15rem;
-  width: 100%;
-  padding: 0 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  z-index: 3;
+}
+.about .row .content .text {
+  position: relative;
+  height: 15rem;
+  width: 0%;
+  padding: 1rem 1rem;
+  color: #fefefe;
+  background-color: #222;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  z-index: 1;
+}
+.about .row .content .text.active {
+  height: 15rem;
+  width: 60%;
+  left: 0;
+  padding: 1rem 1rem;
   color: #fefefe;
   background-color: #222;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  left: 13rem;
-  position: absolute;
   transition: all 0.3s ease;
 }
 
 .about .row .content .text h3 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  padding-top: 1rem;
 }
 
 .about .row .content .text p {
@@ -382,34 +385,53 @@ header {
   line-height: 1.6rem;
   text-align: justify;
 }
-
+.bg-link-medsos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.link-medsos {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  background-color: rgb(73, 73, 73);
+  width: 50%;
+  border-radius: 1rem;
+}
+.link-medsos a {
+  color: var(--primary);
+  margin: 0;
+  padding: 0.3rem 0.1rem 0 0.1rem;
+}
+.link-medsos a:hover {
+  color: var(--bg);
+}
 .toggle-btn {
+  position: relative;
+  right: 1rem;
+  width: 10%;
+  height: 15rem;
+  font-size: 1.2rem;
   background-color: #333;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  left: 13rem;
-  width: 10%;
+  font-family: "Pompiere", cursive;
+  transition: all 0.3s ease;
   z-index: 3;
-  height: 15rem;
-  position: absolute;
-  transition: all 0.1s ease;
 }
 .toggle-btn.active {
+  width: 10%;
+  height: 15rem;
+  right: 0;
+  font-size: 1.2rem;
   background-color: #333;
   color: #fff;
   border: none;
-  padding: 0.5rem 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  left: 90%;
-  width: 10%;
-  z-index: 3;
-  transition: all 0.4s ease;
+  font-family: "Pompiere", cursive;
+  transition: all 0.3s ease;
 }
 
 .toggle-btn:hover {
