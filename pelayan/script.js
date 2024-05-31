@@ -61,6 +61,29 @@ function confirmDelete(id) {
   }
 }
 
+function confirmReservation(id) {
+  if (confirm("Apakah Anda yakin ingin mengkonfirmasi reservasi ini?")) {
+    fetch("crud_functions.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: "action=confirm&id=" + id,
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // Lakukan penanganan tambahan jika diperlukan, misalnya memperbarui tampilan
+        alert("Reservasi telah dikonfirmasi.");
+        window.location.reload(); // Untuk me-refresh halaman setelah reservasi dikonfirmasi
+      })
+      .catch((error) => {
+        console.error("There was a problem with your fetch operation:", error);
+      });
+  }
+}
+
 function logout() {
   // Lakukan proses logout di sini
   // Hapus sesi dan arahkan ke halaman login
