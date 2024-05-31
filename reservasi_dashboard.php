@@ -67,41 +67,53 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </li>
           <li class="nav-item">
             <a href="reservasi_dashboard.php" class="nav-link clr-transition"
-              >Reservasi</a
+              >Pemesanan</a
             >
           </li>
         </ul>
-
+        <div class="social-links">
+                <ul>
+                    <li><a class="nav-icon" href="https://www.instagram.com/ancoltamanimpian/"><img class="nav-icon" src="image/instagram.svg" alt="Instagram" /></a></li>
+                    <li><a class="nav-icon" href="https://x.com/ancoltmnimpian"><img class="nav-icon" src="image/twitter.svg" alt="Twitter" /></a></li>
+                    <li><a class="nav-icon" href="https://www.facebook.com/ancolseaworld/"><img class="nav-icon" src="image/facebook.svg" alt="Facebook" /></a></li>
+                </ul>
+            </div>
         <button class="tombol" onclick="logout()">Logout</button>
       </nav>
     </header>
     <!-- TODO: set style in external file -->
     <!-- TODO: set the eventListener using js instead of inline in `onclick` -->
-    <h1>Pemesanan Tiket </h1>
-    <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
+    <div class="row-tiket">
+      <div class="judul">
+        <h1>Pemesanan Tiket </h1>
+      </div>
 
+      <div class="pemesanan">
+        <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
+          
         <label for="nama">Nama</label>
         <input type="text" id="nama" name="nama" required>
 
         <label for="tanggal">Tanggal:</label>
         <input type="date" id="tanggal" name="tanggal" required><br>
-
+        
         <label for="waktu">Waktu:</label>
         <input type="time" id="waktu" name="waktu" required><br>
 
-        <label for="jumlah-orang">Jumlah Orang:</label>
-        <input type="number" id="jumlah-orang" name="jumlah-orang" required><br>
-
+        <label for="jumlah-orang">Jumlah Tiket:</label>
+        <input type="number" id="jumlah-orang" name="jumlah-orang" min="1" required><br>
+        
         <label for="jenis-meja">Tipe Tiket:</label>
-        <select id="jenis-meja" name="jenis-meja" required>
-            <option value="Ancol">Ancol</option>
-            <option value="Dufan Ancol">Dufan Ancol</option>
-            <option value="Sea World Ancol">Sea World Ancol</option>
-        </select><br>
-        <button type="submit">Reservasi</button>
-    </form>
-
-    <!-- <script src="./users/reservasi/script.js"></script> -->
+            <select id="jenis-meja" name="jenis-meja" required>
+              <option value="Ancol">Ancol</option>
+              <option value="Dufan Ancol">Dufan Ancol</option>
+              <option value="Sea World Ancol">Sea World Ancol</option>
+            </select><br>
+            <button type="submit" onclick="submitForm()">Reservasi</button>
+          </form>
+        </div>
+    </div>
+    <script src="./users/reservasi/script.js"></script>
 </body>
 
 </html>

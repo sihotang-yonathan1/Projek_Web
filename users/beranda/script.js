@@ -33,19 +33,24 @@ document.querySelectorAll(".nav-link").forEach((item) => {
   });
 });
 
-// tekan tombol developer
-document.addEventListener("DOMContentLoaded", function () {
-  const buttons = document.querySelectorAll(".toggle-btn");
+// tombol developer
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButtons = document.querySelectorAll(".toggle-btn");
 
-  buttons.forEach((button) => {
-    button.addEventListener("click", function () {
-      const textDiv = this.previousElementSibling;
-      if (textDiv.style.display === "none") {
-        textDiv.style.display = "block";
-        this.textContent = "Show Less";
+  toggleButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const content = button.closest(".content");
+      const aboutImg = content.querySelector(".about-img");
+      const text = content.querySelector(".text");
+
+      aboutImg.classList.toggle("active");
+      text.classList.toggle("active");
+      button.classList.toggle("active");
+
+      if (button.classList.contains("active")) {
+        button.textContent = "Show Less";
       } else {
-        textDiv.style.display = "none";
-        this.textContent = "Show More";
+        button.textContent = "Show More";
       }
     });
   });

@@ -28,7 +28,7 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
                 <li class="nav-item"><a href="#products" class="nav-link clr-transition">Tiket</a></li>
                 <li class="nav-item"><a href="#about" class="nav-link clr-transition">About</a></li>
                 <li class="nav-item"><a href="about.html" class="nav-link clr-transition">Developer</a></li>
-                <li class="nav-item"><a href="./reservasi_dashboard.php" class="nav-link clr-transition">Reservasi</a></li>
+                <li class="nav-item"><a href="./reservasi_dashboard.php" class="nav-link clr-transition">Pemesanan</a></li>
             </ul>
             <div class="social-links">
                 <ul>
@@ -118,7 +118,6 @@ Secara keseluruhan, Ancol adalah destinasi wisata yang populer di Jakarta yang m
             <span class="lower-footer-elt" id="lower-footer-elt3"><a href="#" class="policy-link">Privacy • Policy</a></span>
         </div>
     </footer>
-    <link href=' https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <script src="./users/beranda/script.js"></script>
 </body>
 

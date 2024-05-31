@@ -46,15 +46,15 @@ header("Content-Type: text/html; charset=UTF-8");
             <div class="side_navbar">
                 <span>Main Menu</span>
                 <a href="manajer_dashboard.php" class="active">Dashboard</a>
-                <a href=" laporan_reservasi.php" class="active">Laporan Reservasi</a>
-                <a href="manejemen_meja.php" class="active">Manajemen Meja</a>
+                <a href=" laporan_reservasi.php" class="active">Laporan Tiket</a>
+                <a href="manejemen_meja.php" class="active">Manajemen Tiket</a>
             </div>
         </nav>
 
         <div class="main-body">
             <h2>Dashboard</h2>
 
-            <div class="promo_card" style="height: 125px; margin: 20px;">
+            <div class="promo_card" style="height: 125px; margin: 12px;">
                 <h1>Welcome </h1>
                 <span>Manajer Ancol</span>
             </div>
@@ -78,7 +78,7 @@ header("Content-Type: text/html; charset=UTF-8");
                                 <td><?= $data['waktu'] ?></td>
                                 <td><?= $data['jumlah_orang'] ?></td>
                                 <td><?= $data['jenis_meja'] ?></td>
-                                <td><?= $data['status'] ?? 'Belum konfigurasi' ?></td>
+                                <td><?= $data['status'] ?? 'Belum konfirmasi' ?></td>
                             </tr>
                         <?php endforeach ?>
                     </table>
