@@ -46,6 +46,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="image/img.jpg">
+    <?php
+    // Tampilkan alert jika terjadi error
+    if (isset($_SESSION['error']) && $_SESSION['error']) {
+        echo "<script>alert('Password Master Salah!');</script>";
+        unset($_SESSION['error']); // Hapus nilai session error
+    }
+    ?>
 </head>
 
 <body>
@@ -101,11 +108,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                         <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass2" autocomplete="off">
                                     </div>
                                     <div class="form-group">
-                                        <select id="user" name="loguser" required class="form-style">
+                                        <select id="user" name="loguser" required class="form-style" onchange="showVerification()">
                                             <option value="pelanggan">Pelanggan</option>
                                             <option value="pelayan">Pelayan</option>
                                             <option value="manajer">Manajer</option>
                                         </select>
+                                    </div>
+                                    <div class="form-group" id="verification_field" style="display: none;">
+                                        <input type="password" name="verification_password" class="form-style" placeholder="Master Password" id="logpass3" autocomplete="off">
                                     </div>
                                     <button type="submit" class="btn">Submit</button>
                                 </form>
@@ -116,6 +126,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             </div>
         </div>
     </div>
+ 
+    <script src="script.js"></script>
 </body>
 
 </html>
