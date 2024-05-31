@@ -18,22 +18,17 @@ $result = json_decode($_result, true);
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <title>Dashboard Pelayan</title>
     <link rel="stylesheet" href="pelayan/style.css">
     <link rel="icon" href="image/img.jpg">
 </head>
-
 <body>
     <header>
         <h3>DASHBOARD PELAYAN</h3>
         <form action="" method="post">
             <input type="text" id="searchInput" onkeyup="searchTable()" placeholder="Cari...">
         </form>
-
-
-
         <a href="index.php"><button class="cta">Logout</button></a>
     </header>
 
@@ -50,7 +45,6 @@ $result = json_decode($_result, true);
             <th>Actions</th>
         </tr>
         <?php if (count($result) > 0): ?>
-            <!-- Ref: https://stackoverflow.com/questions/3560757/php-equivalent-to-pythons-enumerate -->
             <?php foreach($result as $data): ?>
                 <tr>
                     <?php $id_data = $data['id']; ?>
@@ -61,15 +55,16 @@ $result = json_decode($_result, true);
                     <td><?= $data['jumlah_orang'] ?></td>
                     <td><?= $data['jenis_meja'] ?></td>
                     <td><?= $data['catatan_khusus'] ?></td>
-                    <td><?= $data['status'] ?? "Tidak ada"?></td>
+                    <td><?= $data['status'] ?? "Belum Konfirmasi"?></td>
                     <td class='action-icons' id='action-icons'>
-                        <!-- TODO: set in separate js file -->
                         <a href='javascript:void(0)' onclick='showEditForm(<?= json_encode($data) ?>)'>
                             <img src='./image/edit.svg' alt='Edit'>
                         </a>
-                        <!-- TODO: set in separate js file -->
                         <a href='javascript:void(0)' onclick='confirmDelete(<?= $id_data ?>)'>
                             <img src='./image/trash.svg' alt='Delete'>
+                        </a>
+                        <a href='javascript:void(0)' onclick='confirmReservation(<?= $id_data ?>)'>
+                            <img src='./image/check-square.svg' alt='Confirm'>
                         </a>
                     </td>
                 </tr>
@@ -87,26 +82,20 @@ $result = json_decode($_result, true);
             <input type="hidden" name="action" id="form-action">
             <label for="nama">Nama:</label>
             <input type="text" id="nama" name="nama" required><br>
-
             <label for="tanggal">Tanggal:</label>
             <input type="date" id="tanggal" name="tanggal" required><br>
-
             <label for="waktu">Waktu:</label>
             <input type="time" id="waktu" name="waktu" required><br>
-
             <label for="jumlah_orang">Jumlah Tiket:</label>
             <input type="number" id="jumlah_orang" name="jumlah_orang" required><br>
-
             <label for="jenis_meja">Tipe Tiket:</label>
             <select id="jenis_meja" name="jenis_meja" required>
             <option value="Ancol">Ancol</option>
             <option value="Dufan Ancol">Dufan Ancol</option>
             <option value="Sea World Ancol">Sea World Ancol</option>
             </select>
-
             <label for="catatan_khusus">Catatan Khusus:</label>
             <textarea id="catatan_khusus" name="catatan_khusus"></textarea><br>
-
             <button class="submit" type="submit">Submit</button>
             <button class="cancel" type="button" onclick="hideForm()">Cancel</button>
         </form>
@@ -114,5 +103,5 @@ $result = json_decode($_result, true);
 
     <script src="./pelayan/script.js"></script>
 </body>
-
 </html>
+
