@@ -1,4 +1,6 @@
 <?php
+session_start(); // Memulai session
+
 // Koneksi ke database
 $servername = "localhost";
 $username = "root"; // Ganti dengan username Anda
@@ -12,22 +14,42 @@ if ($conn->connect_error) {
     die("Koneksi Gagal: " . $conn->connect_error);
 }
 
-// Ambil data dari form
+// Define master password
+$master_password = 'ancol'; // Ganti dengan master password Anda
 
-$name = $_POST['logname'];
+// Pemeriksaan master password
+if (isset($_POST['loguser']) && ($_POST['loguser'] === 'pelayan' || $_POST['loguser'] === 'manajer') && isset($_POST['verification_password']) && $_POST['verification_password'] !== $master_password) {
+    $_SESSION['error'] = true; // Set session error
+    header("Location: index.php"); // Redirect ke halaman index.php
+    exit();
+} else {
+    // Ambil data dari form
+    $name = $_POST['logname'];
     $email = $_POST['logemail'];
     $pass = $_POST['logpass'];
     $user = $_POST['loguser'];
 
-// Query untuk menyimpan data ke database
-$sql = "INSERT INTO user_form (nama, email, password, user_type) VALUES ('$name', '$email', '$pass', '$user')";
+    // Query untuk menyimpan data ke database
+    $sql = "INSERT INTO user_form (nama, email, password, user_type) VALUES ('$name', '$email', '$pass', '$user')";
 
-if ($conn->query($sql) === TRUE) {
-    echo "Sign Up berhasil!";
-    // Arahkan pengguna ke halaman login
-    header("Location: index.php");
-} else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    if ($conn->query($sql) === TRUE) {
+        // Arahkan pengguna ke halaman yang sesuai
+        switch ($user) {
+            case 'pelayan':
+                header("Location: pelayan_dashboard.php");
+                break;
+            case 'manajer':
+                header("Location: manajer_dashboard.php");
+                break;
+            case 'pelanggan':
+            default:
+                header("Location: beranda_dashboard.php");
+                break;
+        }
+    } else {
+        $_SESSION['error'] = true; // Set session error
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
 }
 
 // Tutup koneksi
