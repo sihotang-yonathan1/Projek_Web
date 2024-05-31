@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900");
 
 body {
+  height: 100vh;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
   font-size: 15px;
@@ -116,7 +117,7 @@ h6 span {
   transform-style: preserve-3d;
   perspective: 800px;
   margin: 0 auto;
-  margin-top: 60px;
+  margin-top: 30px;
 }
 .card-3d-wrapper {
   width: 100%;
@@ -151,6 +152,9 @@ h6 span {
 .card-back {
   transform: rotateY(180deg);
 }
+.card-back.active {
+  height: 113%;
+}
 
 .checkbox:checked ~ .card-3d-wrap .card-3d-wrapper {
   transform: rotateY(180deg);
@@ -174,6 +178,10 @@ h6 span {
   align-items: center;
   justify-content: center;
   text-align: center;
+}
+
+.card-back .center-wrap.active {
+  top: 48%;
 }
 
 .section-text-center {
