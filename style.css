@@ -151,6 +151,8 @@ h6 span {
 }
 .card-back {
   transform: rotateY(180deg);
+  overflow: hidden;
+  overflow-y: scroll;
 }
 .card-back.active {
   height: 113%;
@@ -200,6 +202,23 @@ h4 {
   margin-bottom: 1rem;
 }
 
+.tombol {
+  background-color: rgb(103, 202, 45);
+  width: 60px;
+  height: 30px;
+  top: 0;
+  right: -10rem;
+  color: #f5fdff;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  border-radius: 12%;
+  cursor: pointer;
+  position: absolute;
+}
+
+.tombol:hover {
+  background-color: rgb(198, 21, 21);
+}
+
 .form-group {
   display: inline-block;
   margin: 0;
@@ -223,6 +242,7 @@ h4 {
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
   box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+  box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
 }
 .form-style:focus,
 .form-style:active {
@@ -231,36 +251,46 @@ h4 {
   box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
 }
 
+.form-group input {
+  padding-left: 0.5rem;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
+.form-group select {
+  padding-left: 0.3rem;
+  box-sizing: border-box; /* Ensure padding is included in the element's total width and height */
+}
+
 .form-group input:-ms-input-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
+  color: gray;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 .form-group input::-moz-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
+  color: gray;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 .form-group input::-webkit-input-placeholder {
-  color: #c4c3ca;
-  opacity: 0.7;
+  color: gray;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 .form-group input:focus:-ms-input-placeholder {
-  opacity: 0;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 .form-group input:focus::-moz-placeholder {
-  opacity: 0;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
 .form-group input:focus::-webkit-input-placeholder {
-  opacity: 0;
+  opacity: 2;
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
 }
@@ -302,4 +332,8 @@ h4 {
   background-color: #102770;
   color: #ffeba7;
   box-shadow: 0 8px 24px 0 rgba(16, 39, 112, 0.2);
+}
+
+#btn-sign {
+  margin-bottom: 1rem;
 }
