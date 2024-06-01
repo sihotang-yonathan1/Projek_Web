@@ -28,9 +28,10 @@ if (isset($_POST['loguser']) && ($_POST['loguser'] === 'pelayan' || $_POST['logu
     $email = $_POST['logemail'];
     $pass = $_POST['logpass'];
     $user = $_POST['loguser'];
+    $security = $_POST ['security'];
 
     // Query untuk menyimpan data ke database
-    $sql = "INSERT INTO user_form (nama, email, password, user_type) VALUES ('$name', '$email', '$pass', '$user')";
+    $sql = "INSERT INTO user_form (nama, email, password, user_type, security) VALUES ('$name', '$email', '$pass', '$user', '$security' )";
 
     if ($conn->query($sql) === TRUE) {
         // Arahkan pengguna ke halaman yang sesuai
