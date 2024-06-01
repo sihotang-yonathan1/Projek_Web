@@ -71,13 +71,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                 <img class="pp" src="image/pp.png" alt="bg" width="100px">
                                 <form method="post">
                                     <div class="form-group">
-                                        <input type="email" name="email" class="form-style" placeholder="Your Email" id="email" autocomplete="off">
+                                        <input type="email" name="email" class="form-style" placeholder="Your Email" id="email" autocomplete="off" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" class="form-style" placeholder="Your Password" id="password" autocomplete="off">
+                                        <input type="password" name="password" class="form-style" placeholder="Your Password" id="password" autocomplete="off" required>
                                     </div>
                                     <button type="submit" class="btn">LOGIN</button>
-                                    <p><a href="#0" class="link">Forgot your password?</a></p>
+                                    <p><a href="forget_pass.php" class="link">Forgot your password?</a></p>
 
                                     <?php if ($error): ?>
                                         <div class="alert alert-danger"><?php echo $error; ?></div>
@@ -99,16 +99,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                         }
                                     } ?>
                                     <div class="form-group">
-                                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off">
+                                        <input type="text" name="logname" class="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail2" autocomplete="off">
+                                        <input type="email" name="logemail" class="form-style" placeholder="Your Email" id="logemail2" autocomplete="off" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass2" autocomplete="off">
+                                        <input type="password" name="logpass" class="form-style" placeholder="Your Password" id="logpass2" autocomplete="off" required>
                                     </div>
-                                    <div class="form-group">
-                                        <select id="user" name="loguser" required class="form-style" onchange="showVerification()">
+                                    <div class="form-group" id="user_field">
+                                        <select id="user" name="loguser" class="form-style" placeholder="Your User" onchange="showVerification()" required>
                                             <option value="pelanggan">Pelanggan</option>
                                             <option value="pelayan">Pelayan</option>
                                             <option value="manajer">Manajer</option>
@@ -117,7 +117,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                                     <div class="form-group" id="verification_field" style="display: none;">
                                         <input type="password" name="verification_password" class="form-style" placeholder="Master Password" id="logpass3" autocomplete="off">
                                     </div>
-                                    <button type="submit" class="btn">Submit</button>
+                                    <div class="form-group">
+                                        <input type="text" name="security" class="form-style" placeholder="Pekerjaan impian Anda saat masih kecil?" id="logpass3" autocomplete="off" required>
+                                    </div>
+                                    <button type="submit" class="btn" id="btn-sign">Submit</button>
                                 </form>
                             </div>
                         </div>
