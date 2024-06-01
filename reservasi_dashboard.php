@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <option value="Dufan Ancol">Dufan Ancol</option>
               <option value="Sea World Ancol">Sea World Ancol</option>
             </select><br>
-            <button type="submit" onclick="submitForm()">Reservasi</button>
+            <button type="submit" onclick="submitForm()">Pesan</button>
           </form>
         </div>
     </div>
