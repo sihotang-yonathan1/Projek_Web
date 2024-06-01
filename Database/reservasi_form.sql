@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 31 Bulan Mei 2024 pada 08.43
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Waktu pembuatan: 08 Des 2023 pada 10.14
+-- Versi server: 10.11.2-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,41 +31,19 @@ CREATE TABLE `reservasi_form` (
   `nama` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` time NOT NULL,
-  `jumlah_orang` int(255) NOT NULL,
-  `jenis_meja` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL,
-  `catatan_khusus` varchar(255) DEFAULT NULL,
-  `status` varchar(255) NOT NULL
+  `jumlah_tiket` int(255) NOT NULL,
+  `jenis_meja` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `reservasi_form`
 --
 
-INSERT INTO `reservasi_form` (`nama`, `tanggal`, `waktu`, `jumlah_orang`, `jenis_meja`, `id`, `catatan_khusus`, `status`) VALUES
-('FEBRIAN REZKI HEMETO', '2024-05-31', '14:14:00', 2, 'Ancol', 25, 'Belum Isi', 'Dikonfirmasi'),
-('Cliffor', '2024-05-31', '14:28:00', 5, 'Dufan Ancol', 26, 'Belum Isi', 'Dikonfirmasi'),
-('Jennifer', '2024-05-31', '14:28:00', 4, 'Sea World Ancol', 27, 'Belum Isi', 'Dikonfirmasi');
-
---
--- Indexes for dumped tables
---
-
---
--- Indeks untuk tabel `reservasi_form`
---
-ALTER TABLE `reservasi_form`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT untuk tabel yang dibuang
---
-
---
--- AUTO_INCREMENT untuk tabel `reservasi_form`
---
-ALTER TABLE `reservasi_form`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+INSERT INTO `reservasi_form` (`nama`, `tanggal`, `waktu`, `jumlah_tiket`, `jenis_meja`) VALUES
+('Clifford', '2023-11-30', '23:22:00', 2, 'meja-kecil'),
+('Jennifer', '2023-12-08', '10:12:00', 2, 'meja-kecil'),
+('Stefanus', '2023-12-08', '10:12:00', 2, 'meja-kecil'),
+('Daniel', '2023-12-08', '10:26:00', 8, 'meja-panjang');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

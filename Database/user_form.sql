@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 01 Jun 2024 pada 11.35
--- Versi server: 10.4.32-MariaDB
--- Versi PHP: 8.2.12
+-- Waktu pembuatan: 08 Des 2023 pada 10.15
+-- Versi server: 10.11.2-MariaDB
+-- Versi PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,19 +32,20 @@ CREATE TABLE `user_form` (
   `nama` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `user_type` varchar(255) NOT NULL,
-  `security` varchar(255) NOT NULL
+  `user_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data untuk tabel `user_form`
 --
 
-INSERT INTO `user_form` (`id`, `nama`, `email`, `password`, `user_type`, `security`) VALUES
-(109, 'c', 'c@g', '3', 'pelanggan', 'ilmuan'),
-(110, 'w', 'w@g', '1', 'pelayan', 'ilmuan'),
-(111, 'm', 'm@g', '5', 'manajer', 'ilmuan'),
-(112, 'l', 'l@g', '2', 'pelanggan', 'pilot');
+INSERT INTO `user_form` (`id`, `nama`, `email`, `password`, `user_type`) VALUES
+(9, 'Natalio', 'natalio@gmail.com', 'lio123', 'manajer'),
+(20, 'Clifford', 'clifford@gmail.com', 'clif123', 'pelanggan'),
+(21, 'Matthew', 'matthew@gmail.com', 'matt123', 'pelayan'),
+(39, 'Jennifer', 'jennifer@gmail.com', 'jenn123', 'pelanggan'),
+(85, 'Stefanus', 'stefanus@gmail.com', 'stefan123', 'pelanggan'),
+(86, 'Daniel', 'daniel@gmail.com', 'dan123', 'pelanggan');
 
 --
 -- Indexes for dumped tables
@@ -54,8 +55,7 @@ INSERT INTO `user_form` (`id`, `nama`, `email`, `password`, `user_type`, `securi
 -- Indeks untuk tabel `user_form`
 --
 ALTER TABLE `user_form`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `unique_email` (`email`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
@@ -65,7 +65,7 @@ ALTER TABLE `user_form`
 -- AUTO_INCREMENT untuk tabel `user_form`
 --
 ALTER TABLE `user_form`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -32,7 +32,7 @@ CREATE TABLE `pelayan_form` (
   `nama_pelanggan` varchar(255) NOT NULL,
   `tanggal_reservasi` date NOT NULL,
   `waktu_reservasi` timestamp NOT NULL,
-  `jumlah_orang` int(255) NOT NULL,
+  `jumlah_tiket` int(255) NOT NULL,
   `meja` varchar(255) NOT NULL,
   `catatan_khusus` varchar(255) NOT NULL,
   `status` varchar(255) NOT NULL
