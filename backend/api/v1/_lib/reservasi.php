@@ -11,7 +11,7 @@ class ReservasiHandler extends RequestHandler {
         if ($max_items_number != -1){
             $prepared_statement = $this->connection->prepare("
                 SELECT 
-                    id, nama, tanggal, waktu, jumlah_orang, jenis_meja, catatan_khusus, status 
+                    id, nama, tanggal, waktu, jumlah_tiket, jenis_meja, catatan_khusus, status 
                 FROM reservasi_form 
                 LIMIT ?
             ");
@@ -19,7 +19,7 @@ class ReservasiHandler extends RequestHandler {
         } else {
             $prepared_statement = $this->connection->prepare("
                 SELECT 
-                    id, nama, tanggal, waktu, jumlah_orang, jenis_meja, catatan_khusus, status 
+                    id, nama, tanggal, waktu, jumlah_tiket, jenis_meja, catatan_khusus, status 
                 FROM reservasi_form
             ");
         }
@@ -44,13 +44,13 @@ class ReservasiHandler extends RequestHandler {
     
         $prepared_statement = $this->connection->prepare("
             INSERT INTO reservasi_form 
-                (nama, tanggal, waktu, jumlah_orang, jenis_meja, catatan_khusus, status) 
+                (nama, tanggal, waktu, jumlah_tiket, jenis_meja, catatan_khusus, status) 
             VALUES (?, ?, ?, ?, ?, ?, ?)
         ");
     
         $prepared_statement->bind_param(
             "sssisss", 
-            $req['nama'], $req['tanggal'], $req['waktu'], $req['jumlah_orang'], $req['jenis_meja'], $catatan_khusus, $status
+            $req['nama'], $req['tanggal'], $req['waktu'], $req['jumlah_tiket'], $req['jenis_meja'], $catatan_khusus, $status
         );
     
         $prepared_statement->execute();

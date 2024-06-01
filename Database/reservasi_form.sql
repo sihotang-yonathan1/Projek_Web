@@ -31,7 +31,7 @@ CREATE TABLE `reservasi_form` (
   `nama` varchar(255) NOT NULL,
   `tanggal` date NOT NULL,
   `waktu` time NOT NULL,
-  `jumlah_orang` int(255) NOT NULL,
+  `jumlah_tiket` int(255) NOT NULL,
   `jenis_meja` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
@@ -39,7 +39,7 @@ CREATE TABLE `reservasi_form` (
 -- Dumping data untuk tabel `reservasi_form`
 --
 
-INSERT INTO `reservasi_form` (`nama`, `tanggal`, `waktu`, `jumlah_orang`, `jenis_meja`) VALUES
+INSERT INTO `reservasi_form` (`nama`, `tanggal`, `waktu`, `jumlah_tiket`, `jenis_meja`) VALUES
 ('Clifford', '2023-11-30', '23:22:00', 2, 'meja-kecil'),
 ('Jennifer', '2023-12-08', '10:12:00', 2, 'meja-kecil'),
 ('Stefanus', '2023-12-08', '10:12:00', 2, 'meja-kecil'),

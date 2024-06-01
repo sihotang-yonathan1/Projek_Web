@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "nama" => $_POST['nama'],
         "tanggal" => $_POST['tanggal'],
         "waktu" => $_POST['waktu'],
-        "jumlah_orang" => $_POST['jumlah-orang'],
+        "jumlah_tiket" => $_POST['jumlah-tiket'],
         "jenis_meja" => $_POST['jenis-meja']
     ]);
     if (!is_null(json_decode($_response))){
@@ -100,8 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="waktu">Waktu:</label>
         <input type="time" id="waktu" name="waktu" required><br>
 
-        <label for="jumlah-orang">Jumlah Tiket:</label>
-        <input type="number" id="jumlah-orang" name="jumlah-orang" min="1" required><br>
+        <label for="jumlah-tiket">Jumlah Tiket:</label>
+        <input type="number" id="jumlah-tiket" name="jumlah-tiket" min="1" required><br>
         
         <label for="jenis-meja">Tipe Tiket:</label>
             <select id="jenis-meja" name="jenis-meja" required>
@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
               <option value="Dufan Ancol">Dufan Ancol</option>
               <option value="Sea World Ancol">Sea World Ancol</option>
             </select><br>
-            <button type="submit" onclick="submitForm()">Reservasi</button>
+            <button type="submit" onclick="submitForm()">Pesan</button>
           </form>
         </div>
     </div>
