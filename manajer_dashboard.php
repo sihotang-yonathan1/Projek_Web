@@ -76,7 +76,7 @@ header("Content-Type: text/html; charset=UTF-8");
                             <tr>
                                 <td><?= $data['tanggal'] ?></td>
                                 <td><?= $data['waktu'] ?></td>
-                                <td><?= $data['jumlah_orang'] ?></td>
+                                <td><?= $data['jumlah_tiket'] ?></td>
                                 <td><?= $data['jenis_meja'] ?></td>
                                 <td><?= $data['status'] ?? 'Belum konfirmasi' ?></td>
                             </tr>
