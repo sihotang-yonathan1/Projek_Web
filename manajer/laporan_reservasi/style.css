@@ -119,10 +119,9 @@ table {
   margin-right: 400px;
 }
 
-table td,
-th {
-  padding: 0.2rem 0.8rem;
-}
+table td, th{
+    padding: 0.2rem 0.8rem;
+  }
 
 table th {
   font-size: 15px;
@@ -130,4 +129,100 @@ table th {
 table td {
   font-size: 13px;
   color: rgb(100, 100, 100);
+}
+
+/* Media query untuk layar ponsel */
+@media screen and (max-width: 768px) {
+  /* Mengatur padding agar lebih responsif di ponsel */
+  .header {
+    padding: 10px;
+  }
+
+  .logo a {
+    margin: 2rem 1rem; /* Mengurangi margin di ponsel */
+  }
+
+  .search_box input {
+    width: 150px; /* Mengurangi lebar input di ponsel */
+  }
+
+  .container {
+    flex-direction: column; /* Tata letak kolom di ponsel */
+  }
+
+  .side_navbar {
+    flex-direction: row; /* Tata letak baris di ponsel */
+    overflow-x: auto; /* Scroll horizontal jika terlalu banyak menu di ponsel */
+    height: 4.5rem;
+    width: 100%;
+  }
+
+  .side_navbar span,
+  .side_navbar a {
+    padding: 0.8rem 1rem; /* Mengurangi padding di ponsel */
+    width: auto; /* Tombol menu penuh lebar di ponsel */
+    margin: 0;
+  }
+
+  .promo_card {
+    height: auto; /* Tinggi otomatis di ponsel */
+  }
+
+  .promo_card h1,
+  .promo_card span {
+    margin-left: 10px; /* Mengurangi margin di ponsel */
+  }
+
+  /* Mengatur jarak antara elemen di ponsel */
+  .row {
+    flex-direction: column;
+    margin: 1rem 10px;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  table {
+    margin: 0 10px; /* Mengurangi margin di ponsel */
+  }
+
+  /* Mengurangi padding di seluruh elemen di ponsel */
+  .table td,
+  .table th {
+    padding: 0.5rem 0.3rem;
+  }
+
+  /* Menyembunyikan tombol di ponsel */
+  .tombol {
+    display: none;
+  }
+
+  .history_lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* Posisikan list di sebelah kiri */
+    align-items: flex-start;
+    width: 100%;
+    overflow-x: auto;
+    padding: 1rem;
+  }
+
+  .list1 {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .row {
+    text-align: left;
+    width: 100%;
+    margin: 1rem;
+  }
+
+  h4 {
+    text-align: left;
+  }
+
+  .tombol {
+    display: block; /* Menampilkan tombol */
+  }
 }

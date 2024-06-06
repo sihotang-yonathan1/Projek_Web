@@ -33,9 +33,17 @@ body {
   font-family: "Pompiere", cursive;
   font-size: 1.2rem;
   color: var(--text-clr);
-  background: url("../../image/bg.jpeg") no-repeat center center fixed;
-  background-size: cover;
-  transition: background-color 1000ms;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 
 body::before {
@@ -247,6 +255,19 @@ header {
 }
 .section-one {
   height: 81.5vh;
+  position: relative;
+  z-index: 1;
+}
+
+.section-one::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: -1;
 }
 @media screen and (max-width: 846px) {
   .section-one {
@@ -535,7 +556,7 @@ header {
 }
 @media screen and (max-width: 846px) {
   .section-two {
-    margin-top: 5rem;
+    margin-top: 0;
   }
   .s-two-slogan {
     margin-bottom: 2rem;
@@ -701,4 +722,113 @@ footer {
 
 .policy-link {
   color: var(--primary-clr-alt);
+}
+/* 
+
+
+/* */
+/*  */
+
+/* Ponsel */
+@media only screen and (max-width: 767px) {
+  html,
+  body {
+    max-width: 100%; /* Lebar maksimum 100% dari lebar viewport */
+    overflow-x: hidden; /* Menyembunyikan overflow horizontal */
+  }
+  /* Header Responsif */
+  header {
+    align-items: center; /* Tengahkan elemen dalam header */
+  }
+
+  /* Section One (Hero Section) Responsif */
+  .section-one {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tengahkan konten secara vertikal */
+    align-items: center; /* Tengahkan konten secara horizontal */
+    text-align: center; /* Tengahkan teks */
+    height: auto; /* Gunakan tinggi otomatis agar sesuai dengan konten */
+  }
+
+  .hook-title {
+    font-size: 2rem; /* Ubah ukuran font */
+    margin-top: 2rem; /* Sesuaikan jarak atas */
+  }
+
+  /* Section Two (Developer Section) Responsif */
+  .about {
+    padding: 3rem 1rem; /* Sesuaikan padding */
+  }
+
+  .about h2 {
+    font-size: 2rem; /* Ubah ukuran font */
+    padding-top: 4rem;
+  }
+
+  /* Section Three (Ad Products Section) Responsif */
+  .section-three {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tengahkan konten secara vertikal */
+    align-items: center; /* Tengahkan konten secara horizontal */
+    height: auto; /* Gunakan tinggi otomatis agar sesuai dengan konten */
+    padding: 2rem 0; /* Sesuaikan padding */
+  }
+
+  .s-three-upper-img-container img {
+    width: 100%; /* Sesuaikan lebar gambar */
+    height: auto; /* Gunakan tinggi otomatis */
+    margin-bottom: 1rem; /* Sesuaikan jarak bawah */
+  }
+
+  .s-three-title {
+    font-size: 2rem; /* Ubah ukuran font */
+    margin-bottom: 1rem; /* Sesuaikan jarak bawah */
+  }
+
+  .s-three-desc {
+    margin-bottom: 1rem; /* Sesuaikan jarak bawah */
+  }
+
+  /* Section Four (Product Section) Responsif */
+  .s-two-products {
+    justify-content: center; /* Tengahkan produk secara horizontal */
+  }
+
+  .product {
+    margin: 0.5rem; /* Sesuaikan jarak antar produk */
+  }
+
+  /* Footer Responsif */
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Tengahkan footer secara vertikal */
+    align-items: center; /* Tengahkan footer secara horizontal */
+    padding: 2rem 0; /* Sesuaikan padding */
+  }
+
+  /* developer */
+  .about .row .content {
+    width: 100%; /* Mengatur lebar menjadi 100% */
+    height: auto; /* Mengubah tinggi menjadi otomatis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  }
+
+  .about .row .content .text {
+    width: 100%; /* Mengatur lebar menjadi 100% */
+    height: auto; /* Mengubah tinggi menjadi otomatis */
+    padding: 1rem; /* Menyesuaikan padding */
+  }
+
+  .about .row .content .about-img img {
+    height: 100%;
+    margin-left: -1rem;
+    box-shadow: none;
+  }
+
+  .toggle-btn {
+    display: none; /* Menyembunyikan tombol toggle di layar ponsel */
+  }
 }

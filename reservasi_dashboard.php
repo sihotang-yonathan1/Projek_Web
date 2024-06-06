@@ -9,6 +9,8 @@ if (!isset($_SESSION['user_id']) || empty($_SESSION['user_id'])) {
 
 require_once('./config.php');
 require_once('./utils/network/http_client.php');
+require_once('./config.php');
+require_once('./utils/network/http_client.php');
 
 $message = "";
 
@@ -18,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "tanggal" => $_POST['tanggal'],
         "waktu" => $_POST['waktu'],
         "jumlah_tiket" => $_POST['jumlah-tiket'],
-        "jenis_meja" => $_POST['jenis-meja']
+        "jenis_tiket" => $_POST['jenis-tiket']
     ]);
     if (!is_null(json_decode($_response))){
         header('Location: ' . $_SERVER['PHP_SELF']);
@@ -31,9 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <title>Reservasi Meja Restoran WarongWarem</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="./users/reservasi/style.css">
     <link rel="stylesheet" type="text/css" href="./users/beranda/style.css">
-
     <link rel="icon" href="./image/img.jpg">
     <!-- TODO: refer this style in external file -->
 </head>
@@ -89,27 +93,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
 
       <div class="pemesanan">
-        <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
+          <form id="reservation-form" method="POST" action="<?php $_SERVER['PHP_SELF']?>">
+            
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" name="nama" required>
+
+          <label for="tanggal">Tanggal:</label>
+          <input type="date" id="tanggal" name="tanggal" required><br>
           
-        <label for="nama">Nama</label>
-        <input type="text" id="nama" name="nama" required>
+          <label for="waktu">Waktu:</label>
+          <input type="time" id="waktu" name="waktu" required><br>
 
-        <label for="tanggal">Tanggal:</label>
-        <input type="date" id="tanggal" name="tanggal" required><br>
-        
-        <label for="waktu">Waktu:</label>
-        <input type="time" id="waktu" name="waktu" required><br>
-
-        <label for="jumlah-tiket">Jumlah Tiket:</label>
-        <input type="number" id="jumlah-tiket" name="jumlah-tiket" min="1" required><br>
-        
-        <label for="jenis-meja">Tipe Tiket:</label>
-            <select id="jenis-meja" name="jenis-meja" required>
-              <option value="Ancol">Ancol</option>
-              <option value="Dufan Ancol">Dufan Ancol</option>
-              <option value="Sea World Ancol">Sea World Ancol</option>
-            </select><br>
-            <button type="submit" onclick="submitForm()">Pesan</button>
+          <label for="jumlah-tiket">Jumlah Tiket:</label>
+          <input type="number" id="jumlah-tiket" name="jumlah-tiket" min="1" required><br>
+          
+          <label for="jenis-tiket">Tipe Tiket:</label>
+              <select id="jenis-tiket" name="jenis-tiket" required>
+                <option value="Ancol">Ancol</option>
+                <option value="Dufan Ancol">Dufan Ancol</option>
+                <option value="Sea World Ancol">Sea World Ancol</option>
+              </select><br>
+              <button type="submit" onclick="submitForm()">Pesan</button>
           </form>
         </div>
     </div>
@@ -117,3 +121,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+

@@ -2,6 +2,8 @@
 
 // TODO: encapsulate the DB connection process in one separate file
 
+// TODO: encapsulate the DB connection process in one separate file
+
 $host = "localhost";
 $username = "root";
 $password = "";
@@ -16,11 +18,11 @@ if ($conn->connect_error) {
 $name = $conn->real_escape_string($_POST['nama']);
 $date = $conn->real_escape_string($_POST['tanggal']);
 $time = $conn->real_escape_string($_POST['waktu']);
-$user = $conn->real_escape_string($_POST['jumlah-orang']);
-$jenis = $conn->real_escape_string($_POST['jenis-meja']);
+$user = $conn->real_escape_string($_POST['jumlah-tiket']);
+$jenis = $conn->real_escape_string($_POST['jenis-tiket']);
 
 // Set this query into prepared statement
-$sql = "INSERT INTO reservasi_form (nama, tanggal, waktu, jumlah_orang, jenis_meja) VALUES ('$name', '$date', '$time', '$user', '$jenis')";
+$sql = "INSERT INTO reservasi_form (nama, tanggal, waktu, jumlah_tiket, jenis_tiket) VALUES ('$name', '$date', '$time', '$user', '$jenis')";
 
 if ($conn->query($sql) === TRUE) {
     echo "Reservasi berhasil!";
@@ -30,3 +32,4 @@ if ($conn->query($sql) === TRUE) {
 
 $conn->close();
 ?>
+

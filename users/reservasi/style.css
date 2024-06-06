@@ -38,7 +38,6 @@ body::before {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border: 2px solid black;
 }
 
 .judul {
@@ -103,4 +102,31 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #e7e970;
+}
+
+@media only screen and (max-width: 767px) {
+  .row-tiket {
+    width: 100%;
+    height: auto;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .judul {
+    width: 100%;
+    padding-top: 1rem;
+    margin-top: 0;
+  }
+
+  .pemesanan {
+    width: 100%;
+    padding-top: 1rem;
+    align-items: normal;
+    height: auto;
+  }
+
+  form {
+    width: 85%;
+  }
 }
