@@ -22,9 +22,9 @@ function getAllReservations($conn) {
     return $conn->query($query);
 }
 
-function updateReservation($conn, $id, $nama, $tanggal, $waktu, $jumlah_orang, $jenis_meja, $catatan_khusus) {
-    $stmt = $conn->prepare("UPDATE reservasi_form SET nama=?, tanggal=?, waktu=?, jumlah_orang=?, jenis_meja=?, catatan_khusus=? WHERE id=?");
-    $stmt->bind_param("sssissi", $nama, $tanggal, $waktu, $jumlah_orang, $jenis_meja, $catatan_khusus, $id);
+function updateReservation($conn, $id, $nama, $tanggal, $waktu, $jumlah_tiket, $jenis_tiket, $catatan_khusus) {
+    $stmt = $conn->prepare("UPDATE reservasi_form SET nama=?, tanggal=?, waktu=?, jumlah_tiket=?, jenis_tiket=?, catatan_khusus=? WHERE id=?");
+    $stmt->bind_param("sssissi", $nama, $tanggal, $waktu, $jumlah_tiket, $jenis_tiket, $catatan_khusus, $id);
     return $stmt->execute();
 }
 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $action = $_POST['action'];
 
         if ($action == 'update') {
-            updateReservation($conn, $_POST['id'], $_POST['nama'], $_POST['tanggal'], $_POST['waktu'], $_POST['jumlah_orang'], $_POST['jenis_meja'], $_POST['catatan_khusus']);
+            updateReservation($conn, $_POST['id'], $_POST['nama'], $_POST['tanggal'], $_POST['waktu'], $_POST['jumlah_tiket'], $_POST['jenis_tiket'], $_POST['catatan_khusus']);
         } elseif ($action == 'delete') {
             deleteReservation($conn, $_POST['id']);
         } elseif ($action == 'confirm') {

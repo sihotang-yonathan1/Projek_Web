@@ -29,8 +29,8 @@ function showEditForm(data) {
   document.getElementById("nama").value = data.nama;
   document.getElementById("tanggal").value = data.tanggal;
   document.getElementById("waktu").value = data.waktu;
-  document.getElementById("jumlah_orang").value = data.jumlah_orang;
-  document.getElementById("jenis_meja").value = data.jenis_meja;
+  document.getElementById("jumlah_tiket").value = data.jumlah_tiket;
+  document.getElementById("jenis_tiket").value = data.jenis_tiket;
   document.getElementById("catatan_khusus").value = data.catatan_khusus;
 }
 

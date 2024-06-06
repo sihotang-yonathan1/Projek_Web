@@ -3,8 +3,8 @@ function submitForm() {
   var nama = document.getElementById("nama").value;
   var tanggal = document.getElementById("tanggal").value;
   var waktu = document.getElementById("waktu").value;
-  var jumlahOrang = document.getElementById("jumlah-orang").value;
-  var jenisMeja = document.getElementById("jenis-meja").value;
+  var jumlahOrang = document.getElementById("jumlah-tiket").value;
+  var jenisMeja = document.getElementById("jenis-tiket").value;
 
   // Validasi form sebelum submit
   if (nama && tanggal && waktu && jumlahOrang && jenisMeja) {
@@ -18,3 +18,4 @@ function logout() {
   // Hapus sesi dan arahkan ke halaman login
   window.location.href = "logout.php";
 }
+
